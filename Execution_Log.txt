@@ -1,0 +1,2164 @@
+2026-11-16 16:24:27,413 - INFO - ====================================
+2026-11-16 16:24:27,414 - INFO - AUTOMATION STARTED
+2026-11-16 16:24:27,414 - INFO - ====================================
+2026-11-16 16:24:27,414 - INFO - MAIN PROCESS STARTED
+2026-11-16 16:24:27,414 - INFO - Reading Excel File
+2026-11-16 16:24:27,462 - INFO - Total CNIC Records Loaded: 3
+2026-11-16 16:24:27,463 - INFO - Launching Chrome Browser
+2026-11-16 16:25:06,503 - INFO - AUTOMATION FINISHED
+2026-11-17 14:04:48,131 - INFO - ====================================
+2026-11-17 14:04:48,132 - INFO - AUTOMATION STARTED
+2026-11-17 14:04:48,132 - INFO - ====================================
+2026-11-17 14:04:48,132 - INFO - MAIN PROCESS STARTED
+2026-11-17 14:04:48,133 - INFO - Reading Excel File
+2026-11-17 14:04:48,165 - INFO - Total CNIC Records Loaded: 3
+2026-11-17 14:04:48,166 - INFO - Launching Chrome Browser
+2026-11-17 14:05:46,059 - INFO - AUTOMATION FINISHED
+2026-11-17 14:22:16,144 - INFO - ====================================
+2026-11-17 14:22:16,144 - INFO - AUTOMATION STARTED
+2026-11-17 14:22:16,144 - INFO - ====================================
+2026-11-17 14:22:16,144 - INFO - MAIN PROCESS STARTED
+2026-11-17 14:22:16,144 - INFO - Reading Excel File
+2026-11-17 14:22:16,175 - INFO - Total CNIC Records Loaded: 3
+2026-11-17 14:22:16,176 - INFO - Launching Chrome Browser
+2026-11-17 14:23:42,291 - ERROR - MAIN FUNCTION FAILED
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\common\driver_finder.py", line 67, in _binary_paths
+    output = SeleniumManager().binary_paths(self._to_args())
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\common\selenium_manager.py", line 55, in binary_paths
+    return self._run(args)
+           ~~~~~~~~~^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\common\selenium_manager.py", line 159, in _run
+    raise WebDriverException(
+        f"Unsuccessful command executed: {command}; code: {completed_proc.returncode}\n{result}\n{stderr}"
+    )
+selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe --browser chrome --language-binding python --output json; code: 65
+{'code': 65, 'message': 'error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json): client error (Connect): tcp connect error: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (os error 10060)', 'driver_path': '', 'browser_path': ''}
+
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\main.py", line 466, in Main
+    BrowserLaunch()
+    ~~~~~~~~~~~~~^^
+  File "D:\VsCode\Edap Automation\main.py", line 151, in BrowserLaunch
+    driver = webdriver.Chrome(options=options)
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 45, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        browser_name=DesiredCapabilities.CHROME["browserName"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        keep_alive=keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 50, in __init__
+    if finder.get_browser_path():
+       ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\common\driver_finder.py", line 47, in get_browser_path
+    return self._binary_paths()["browser_path"]
+           ~~~~~~~~~~~~~~~~~~^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\common\driver_finder.py", line 78, in _binary_paths
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+
+2026-11-17 14:23:42,354 - INFO - AUTOMATION FINISHED
+2026-11-17 14:29:06,102 - INFO - ====================================
+2026-11-17 14:29:06,103 - INFO - AUTOMATION STARTED
+2026-11-17 14:29:06,103 - INFO - ====================================
+2026-11-17 14:29:06,103 - INFO - MAIN PROCESS STARTED
+2026-11-17 14:29:06,103 - INFO - Reading Excel File
+2026-11-17 14:29:06,131 - INFO - Total CNIC Records Loaded: 3
+2026-11-17 14:29:06,131 - INFO - Launching Chrome Browser
+2026-11-17 14:29:06,131 - INFO - Searching local browser folder
+2026-11-17 14:29:06,140 - INFO - ChromeDriver Found: D:\VsCode\Edap Automation\browser\chromedriver-win64\chromedriver.exe
+2026-11-17 14:29:06,140 - INFO - Bundled Chrome Found: D:\VsCode\Edap Automation\browser\chrome-win64\chrome.exe
+2026-11-17 14:29:06,141 - INFO - Initializing local ChromeDriver
+2026-11-17 14:29:15,235 - INFO - Browser Launched Successfully
+2026-11-17 14:29:15,236 - INFO - Opening SBP Portal
+2026-11-17 14:29:17,095 - ERROR - SBP Login Function Failed
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\main.py", line 227, in SBP_Login_Function
+    driver.get(SBP_Portal)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 586, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 566, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 234, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: net::ERR_TUNNEL_CONNECTION_FAILED
+  (Session info: chrome=154.0.8037.57)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7bd8fbe05+5a55]
+	chromedriver!(No symbol) [0x7ff7bd823230]
+	chromedriver!(No symbol) [0x7ff7bd646e4d]
+	chromedriver!(No symbol) [0x7ff7bd643c3b]
+	chromedriver!(No symbol) [0x7ff7bd634181]
+	chromedriver!(No symbol) [0x7ff7bd635fc4]
+	chromedriver!(No symbol) [0x7ff7bd634714]
+	chromedriver!(No symbol) [0x7ff7bd633eeb]
+	chromedriver!(No symbol) [0x7ff7bd633ba1]
+	chromedriver!(No symbol) [0x7ff7bd631870]
+	chromedriver!(No symbol) [0x7ff7bd631fe2]
+	chromedriver!(No symbol) [0x7ff7bd64b137]
+	chromedriver!(No symbol) [0x7ff7bd6f3424]
+	chromedriver!(No symbol) [0x7ff7bd6cba6a]
+	chromedriver!(No symbol) [0x7ff7bd6f267a]
+	chromedriver!(No symbol) [0x7ff7bd694412]
+	chromedriver!(No symbol) [0x7ff7bd695223]
+	chromedriver!GetHandleVerifier [0x7ff7bdd0b1d1+414e21]
+	chromedriver!GetHandleVerifier [0x7ff7bdd351fb+43ee4b]
+	chromedriver!GetHandleVerifier [0x7ff7bdd296ce+43331e]
+	chromedriver!GetHandleVerifier [0x7ff7bda0015e+109dae]
+	chromedriver!(No symbol) [0x7ff7bd830e85]
+	chromedriver!(No symbol) [0x7ff7bd82be14]
+	chromedriver!(No symbol) [0x7ff7bd82bfa4]
+	chromedriver!(No symbol) [0x7ff7bd816b0c]
+	KERNEL32!BaseThreadInitThunk [0x7ff98114dda7+17]
+	ntdll!RtlUserThreadStart [0x7ff9821fee4c+2c]
+
+2026-11-17 14:29:17,131 - ERROR - Portal Authentication Failed
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\main.py", line 311, in Portal_Authentication_Function
+    raise Exception("SBP login unsuccessful")
+Exception: SBP login unsuccessful
+
+Portal authentication function failed. Login was unsuccessful.
+2026-11-17 14:29:17,157 - ERROR - Login unsuccessful. Process terminated.
+2026-11-17 14:29:17,157 - INFO - AUTOMATION FINISHED
+2026-11-17 14:38:37,388 - INFO - ====================================
+2026-11-17 14:38:37,388 - INFO - AUTOMATION STARTED
+2026-11-17 14:38:37,388 - INFO - ====================================
+2026-11-17 14:38:37,388 - INFO - MAIN PROCESS STARTED
+2026-11-17 14:38:37,388 - INFO - Reading Excel File
+2026-11-17 14:38:37,417 - INFO - Total CNIC Records Loaded: 3
+2026-11-17 14:38:37,418 - INFO - Launching Chrome Browser
+2026-11-17 14:38:37,418 - INFO - Searching local browser folder
+2026-11-17 14:38:37,437 - INFO - ChromeDriver Found: D:\VsCode\Edap Automation\browser\chromedriver-win64\chromedriver.exe
+2026-11-17 14:38:37,438 - INFO - Bundled Chrome Found: D:\VsCode\Edap Automation\browser\chrome-win64\chrome.exe
+2026-11-17 14:38:37,439 - INFO - Initializing local ChromeDriver
+2026-11-17 14:38:43,774 - INFO - Browser Launched Successfully
+2026-11-17 14:38:43,775 - INFO - Opening SBP Portal
+2026-11-17 14:38:45,602 - ERROR - SBP Login Function Failed
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\main.py", line 227, in SBP_Login_Function
+    driver.get(SBP_Portal)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 586, in get
+    self.execute(Command.GET, {"url": url})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 566, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 234, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: net::ERR_TUNNEL_CONNECTION_FAILED
+  (Session info: chrome=154.0.8037.57)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7bd8fbe05+5a55]
+	chromedriver!(No symbol) [0x7ff7bd823230]
+	chromedriver!(No symbol) [0x7ff7bd646e4d]
+	chromedriver!(No symbol) [0x7ff7bd643c3b]
+	chromedriver!(No symbol) [0x7ff7bd634181]
+	chromedriver!(No symbol) [0x7ff7bd635fc4]
+	chromedriver!(No symbol) [0x7ff7bd634714]
+	chromedriver!(No symbol) [0x7ff7bd633eeb]
+	chromedriver!(No symbol) [0x7ff7bd633ba1]
+	chromedriver!(No symbol) [0x7ff7bd631870]
+	chromedriver!(No symbol) [0x7ff7bd631fe2]
+	chromedriver!(No symbol) [0x7ff7bd64b137]
+	chromedriver!(No symbol) [0x7ff7bd6f3424]
+	chromedriver!(No symbol) [0x7ff7bd6cba6a]
+	chromedriver!(No symbol) [0x7ff7bd6f267a]
+	chromedriver!(No symbol) [0x7ff7bd694412]
+	chromedriver!(No symbol) [0x7ff7bd695223]
+	chromedriver!GetHandleVerifier [0x7ff7bdd0b1d1+414e21]
+	chromedriver!GetHandleVerifier [0x7ff7bdd351fb+43ee4b]
+	chromedriver!GetHandleVerifier [0x7ff7bdd296ce+43331e]
+	chromedriver!GetHandleVerifier [0x7ff7bda0015e+109dae]
+	chromedriver!(No symbol) [0x7ff7bd830e85]
+	chromedriver!(No symbol) [0x7ff7bd82be14]
+	chromedriver!(No symbol) [0x7ff7bd82bfa4]
+	chromedriver!(No symbol) [0x7ff7bd816b0c]
+	KERNEL32!BaseThreadInitThunk [0x7ff98114dda7+17]
+	ntdll!RtlUserThreadStart [0x7ff9821fee4c+2c]
+
+2026-11-17 14:38:45,622 - ERROR - Portal Authentication Failed
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\main.py", line 311, in Portal_Authentication_Function
+    raise Exception("SBP login unsuccessful")
+Exception: SBP login unsuccessful
+
+Portal authentication function failed. Login was unsuccessful.
+2026-11-17 14:38:45,641 - ERROR - Login unsuccessful. Process terminated.
+2026-11-17 14:38:45,641 - INFO - AUTOMATION FINISHED
+2026-11-17 14:45:56,515 - INFO - ====================================
+2026-11-17 14:45:56,515 - INFO - AUTOMATION STARTED
+2026-11-17 14:45:56,515 - INFO - ====================================
+2026-11-17 14:45:56,516 - INFO - MAIN PROCESS STARTED
+2026-11-17 14:45:56,516 - INFO - Reading Excel File
+2026-11-17 14:45:56,536 - INFO - Total CNIC Records Loaded: 3
+2026-11-17 14:45:56,537 - INFO - Launching Chrome Browser
+2026-11-17 14:45:56,537 - INFO - Searching local browser folder
+2026-11-17 14:45:56,544 - INFO - ChromeDriver Found: D:\VsCode\Edap Automation\browser\chromedriver-win64\chromedriver.exe
+2026-11-17 14:45:56,544 - INFO - Bundled Chrome Found: D:\VsCode\Edap Automation\browser\chrome-win64\chrome.exe
+2026-11-17 14:45:56,545 - INFO - Initializing local ChromeDriver
+2026-11-17 14:46:04,058 - INFO - Browser Launched Successfully
+2026-11-17 14:46:04,059 - INFO - Opening SBP Portal
+2026-11-17 14:46:21,996 - INFO - SBP Login Confirmed by User
+2026-11-17 14:46:21,996 - INFO - Opening EDAP Portal
+2026-11-17 14:46:22,000 - ERROR - EDAP Login Function Failed
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\main.py", line 268, in EDAP_Login_Function
+    driver.switch_to.new_window("tab")
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\switch_to.py", line 100, in new_window
+    value = self._driver.execute(Command.NEW_WINDOW, {"type": type_hint})["value"]
+            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 566, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 234, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=154.0.8037.57); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7bd8fbe05+5a55]
+	chromedriver!(No symbol) [0x7ff7bd823230]
+	chromedriver!(No symbol) [0x7ff7bd646e4d]
+	chromedriver!(No symbol) [0x7ff7bd632802]
+	chromedriver!(No symbol) [0x7ff7bd6584dc]
+	chromedriver!(No symbol) [0x7ff7bd6d33c0]
+	chromedriver!(No symbol) [0x7ff7bd6f1f4d]
+	chromedriver!(No symbol) [0x7ff7bd694412]
+	chromedriver!(No symbol) [0x7ff7bd695223]
+	chromedriver!GetHandleVerifier [0x7ff7bdd0b1d1+414e21]
+	chromedriver!GetHandleVerifier [0x7ff7bdd351fb+43ee4b]
+	chromedriver!GetHandleVerifier [0x7ff7bdd296ce+43331e]
+	chromedriver!GetHandleVerifier [0x7ff7bda0015e+109dae]
+	chromedriver!(No symbol) [0x7ff7bd830e85]
+	chromedriver!(No symbol) [0x7ff7bd82be14]
+	chromedriver!(No symbol) [0x7ff7bd82bfa4]
+	chromedriver!(No symbol) [0x7ff7bd816b0c]
+	KERNEL32!BaseThreadInitThunk [0x7ff98114dda7+17]
+	ntdll!RtlUserThreadStart [0x7ff9821fee4c+2c]
+
+2026-11-17 14:46:22,022 - ERROR - Portal Authentication Failed
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\main.py", line 318, in Portal_Authentication_Function
+    raise Exception("EDAP login unsuccessful")
+Exception: EDAP login unsuccessful
+
+Portal authentication function failed. Login was unsuccessful.
+2026-11-17 14:46:22,044 - ERROR - Login unsuccessful. Process terminated.
+2026-11-17 14:46:22,044 - INFO - AUTOMATION FINISHED
+2026-11-17 14:48:34,659 - INFO - ====================================
+2026-11-17 14:48:34,659 - INFO - AUTOMATION STARTED
+2026-11-17 14:48:34,659 - INFO - ====================================
+2026-11-17 14:48:34,659 - INFO - MAIN PROCESS STARTED
+2026-11-17 14:48:34,659 - INFO - Reading Excel File
+2026-11-17 14:48:34,680 - INFO - Total CNIC Records Loaded: 3
+2026-11-17 14:48:34,681 - INFO - Launching Chrome Browser
+2026-11-17 14:48:34,681 - INFO - Searching local browser folder
+2026-11-17 14:48:34,687 - INFO - ChromeDriver Found: D:\VsCode\Edap Automation\browser\chromedriver-win64\chromedriver.exe
+2026-11-17 14:48:34,687 - INFO - Bundled Chrome Found: D:\VsCode\Edap Automation\browser\chrome-win64\chrome.exe
+2026-11-17 14:48:34,688 - INFO - Initializing local ChromeDriver
+2026-11-17 14:48:39,539 - INFO - Browser Launched Successfully
+2026-11-17 14:48:39,541 - INFO - Opening SBP Portal
+2026-11-17 14:51:05,282 - INFO - SBP Login Confirmed by User
+2026-11-17 14:51:05,282 - INFO - Opening EDAP Portal
+2026-11-17 14:54:15,584 - INFO - EDAP Login Confirmed by User
+2026-11-17 14:54:15,687 - ERROR - Portal Authentication Failed
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\main.py", line 322, in Portal_Authentication_Function
+    driver.switch_to.window(edap_tab)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\switch_to.py", line 122, in window
+    self._w3c_window(window_name)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\switch_to.py", line 130, in _w3c_window
+    send_handle(window_name)
+    ~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\switch_to.py", line 126, in send_handle
+    self._driver.execute(Command.SWITCH_TO_WINDOW, {"handle": h})
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 566, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 234, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=154.0.8037.57); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7bd8fbe05+5a55]
+	chromedriver!(No symbol) [0x7ff7bd823230]
+	chromedriver!(No symbol) [0x7ff7bd646e4d]
+	chromedriver!(No symbol) [0x7ff7bd631106]
+	chromedriver!(No symbol) [0x7ff7bd6321bf]
+	chromedriver!(No symbol) [0x7ff7bd647973]
+	chromedriver!(No symbol) [0x7ff7bd61d7d1]
+	chromedriver!(No symbol) [0x7ff7bd6dee3e]
+	chromedriver!(No symbol) [0x7ff7bd694412]
+	chromedriver!(No symbol) [0x7ff7bd695223]
+	chromedriver!GetHandleVerifier [0x7ff7bdd0b1d1+414e21]
+	chromedriver!GetHandleVerifier [0x7ff7bdd351fb+43ee4b]
+	chromedriver!GetHandleVerifier [0x7ff7bdd296ce+43331e]
+	chromedriver!GetHandleVerifier [0x7ff7bda0015e+109dae]
+	chromedriver!(No symbol) [0x7ff7bd830e85]
+	chromedriver!(No symbol) [0x7ff7bd82be14]
+	chromedriver!(No symbol) [0x7ff7bd82bfa4]
+	chromedriver!(No symbol) [0x7ff7bd816b0c]
+	KERNEL32!BaseThreadInitThunk [0x7ff98114dda7+17]
+	ntdll!RtlUserThreadStart [0x7ff9821fee4c+2c]
+
+
+Portal authentication function failed. Login was unsuccessful.
+2026-11-17 14:54:15,726 - ERROR - Login unsuccessful. Process terminated.
+2026-11-17 14:54:15,726 - INFO - AUTOMATION FINISHED
+2026-11-17 14:54:35,991 - INFO - ====================================
+2026-11-17 14:54:35,992 - INFO - AUTOMATION STARTED
+2026-11-17 14:54:35,992 - INFO - ====================================
+2026-11-17 14:54:35,992 - INFO - MAIN PROCESS STARTED
+2026-11-17 14:54:35,992 - INFO - Reading Excel File
+2026-11-17 14:54:36,023 - INFO - Total CNIC Records Loaded: 3
+2026-11-17 14:54:36,024 - INFO - Launching Chrome Browser
+2026-11-17 14:54:36,025 - INFO - Searching local browser folder
+2026-11-17 14:54:36,034 - INFO - ChromeDriver Found: D:\VsCode\Edap Automation\browser\chromedriver-win64\chromedriver.exe
+2026-11-17 14:54:36,035 - INFO - Bundled Chrome Found: D:\VsCode\Edap Automation\browser\chrome-win64\chrome.exe
+2026-11-17 14:54:36,036 - INFO - Initializing local ChromeDriver
+2026-11-17 14:54:42,358 - INFO - Browser Launched Successfully
+2026-11-17 14:54:42,359 - INFO - Opening SBP Portal
+2026-11-17 14:54:47,023 - INFO - SBP Login Confirmed by User
+2026-11-17 14:54:47,024 - INFO - Opening EDAP Portal
+2026-11-17 14:54:54,724 - INFO - EDAP Login Confirmed by User
+2026-11-17 14:54:54,768 - INFO - Portal Authentication Completed
+2026-11-17 14:54:54,788 - INFO - EDAP Activities Started
+2026-11-17 14:56:10,758 - INFO - AUTOMATION FINISHED
+2026-11-17 14:59:52,831 - INFO - ====================================
+2026-11-17 14:59:52,831 - INFO - AUTOMATION STARTED
+2026-11-17 14:59:52,831 - INFO - ====================================
+2026-11-17 14:59:52,831 - INFO - MAIN PROCESS STARTED
+2026-11-17 14:59:52,831 - INFO - Reading Excel File
+2026-11-17 14:59:52,865 - INFO - Total CNIC Records Loaded: 3
+2026-11-17 14:59:52,866 - INFO - Launching Chrome Browser
+2026-11-17 14:59:52,867 - INFO - Searching local browser folder
+2026-11-17 14:59:52,877 - INFO - ChromeDriver Found: D:\VsCode\Edap Automation\browser\chromedriver-win64\chromedriver.exe
+2026-11-17 14:59:52,877 - INFO - Bundled Chrome Found: D:\VsCode\Edap Automation\browser\chrome-win64\chrome.exe
+2026-11-17 14:59:52,879 - INFO - Initializing local ChromeDriver
+2026-11-17 14:59:58,432 - INFO - Browser Launched Successfully
+2026-11-17 14:59:58,433 - INFO - Opening SBP Portal
+2026-11-17 15:00:10,569 - INFO - SBP Login Confirmed by User
+2026-11-17 15:00:10,569 - INFO - Opening EDAP Portal
+2026-11-17 15:00:11,384 - INFO - EDAP Login Confirmed by User
+2026-11-17 15:00:11,399 - INFO - Portal Authentication Completed
+2026-11-17 15:00:11,415 - INFO - EDAP Activities Started
+2026-11-17 15:00:44,786 - INFO - Add Amendment Request Clicked
+2026-11-17 15:00:44,787 - INFO - Excel Row Processing Started
+2026-11-17 15:00:44,797 - INFO - Processing Entry 1/3
+2026-11-17 15:00:45,124 - INFO - CNIC Entered for Entry 1
+2026-11-17 15:00:47,918 - WARNING - October 2026 not available
+2026-11-17 15:00:47,920 - INFO - Excel Row Processing Completed
+2026-11-17 15:00:47,920 - INFO - MAIN PROCESS COMPLETED SUCCESSFULLY
+2026-11-17 15:00:47,921 - INFO - AUTOMATION FINISHED
+2026-11-17 15:51:22,841 - INFO - EDAP automation started.
+2026-11-17 15:51:22,842 - INFO - Main function started.
+2026-11-17 15:51:22,875 - INFO - Total CNIC records loaded: 3
+2026-11-17 15:51:29,845 - INFO - Chrome browser launched successfully.
+2026-11-17 15:51:29,846 - INFO - Opening SBP portal.
+2026-11-17 15:52:14,407 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-17 15:52:54,560 - INFO - EDAP automation started.
+2026-11-17 15:52:54,561 - INFO - Main function started.
+2026-11-17 15:52:54,617 - INFO - Total CNIC records loaded: 3
+2026-11-17 15:53:01,919 - INFO - Chrome browser launched successfully.
+2026-11-17 15:53:01,920 - INFO - Opening SBP portal.
+2026-11-17 15:54:05,651 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-18 12:09:18,584 - INFO - EDAP automation started.
+2026-11-18 12:09:18,585 - INFO - Main function started.
+2026-11-18 12:09:18,645 - INFO - Total CNIC records loaded: 3
+2026-11-18 12:09:54,552 - INFO - Chrome browser launched successfully.
+2026-11-18 12:09:54,553 - INFO - Opening SBP portal.
+2026-11-18 12:10:51,448 - INFO - SBP login wait completed.
+2026-11-18 12:10:51,448 - INFO - Opening EDAP portal in a second tab.
+2026-11-18 12:10:55,253 - INFO - EDAP login confirmed.
+2026-11-18 12:11:00,731 - INFO - Add Amendment Request opened.
+2026-11-18 12:11:00,732 - INFO - Starting CNIC processing. Total records: 3
+2026-11-18 12:11:00,742 - INFO - Processing entry 1/3.
+2026-11-18 12:11:03,395 - ERROR - EachEntry_Activity_Function failed at row 1.
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\Playground.py", line 338, in each_entry_row_function
+    each_entry_activity_function(driver, element_wait, cnic, index, total)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\Playground.py", line 133, in each_entry_activity_function
+    raise RuntimeError("October 2026 is not available in the date dropdown.")
+RuntimeError: October 2026 is not available in the date dropdown.
+2026-11-18 12:11:03,408 - INFO - CNIC row processing finished.
+2026-11-18 12:11:03,408 - INFO - Main function completed successfully.
+2026-11-18 12:11:03,409 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-18 14:29:51,701 - INFO - EDAP automation started.
+2026-11-18 14:29:51,702 - INFO - Main function started.
+2026-11-18 14:29:51,757 - INFO - Total CNIC records loaded: 3
+2026-11-18 14:30:07,326 - INFO - Chrome browser launched successfully.
+2026-11-18 14:30:07,327 - INFO - Opening SBP portal.
+2026-11-18 14:30:56,608 - INFO - SBP login wait completed.
+2026-11-18 14:30:56,608 - INFO - Opening EDAP portal in a second tab.
+2026-11-18 14:31:02,957 - INFO - EDAP login confirmed.
+2026-11-18 14:31:09,983 - INFO - Add Amendment Request opened.
+2026-11-18 14:31:09,988 - INFO - Starting CNIC processing. Total records: 3
+2026-11-18 14:31:09,994 - INFO - Processing CNIC 1/3: 3740573670362
+2026-11-18 14:31:09,995 - INFO - Processing CNIC 3740573670362 for Oct 2026
+2026-11-18 14:31:12,153 - ERROR - EachEntry_Activity_Function failed at row 1.
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\backup.py", line 390, in each_entry_row_function
+    each_entry_activity_function(driver, element_wait, cnic, index, total)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\backup.py", line 166, in each_entry_activity_function
+    raise RuntimeError(f"{month_name} not available for CNIC {cnic}")
+RuntimeError: Oct 2026 not available for CNIC 3740573670362
+2026-11-18 14:31:12,168 - INFO - CNIC row processing finished.
+2026-11-18 14:31:12,168 - INFO - Main function completed successfully.
+2026-11-18 14:31:12,169 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-18 15:18:49,617 - INFO - EDAP automation started.
+2026-11-18 15:18:49,618 - INFO - Main function started.
+2026-11-18 15:18:49,654 - INFO - Total CNIC records loaded: 3
+2026-11-18 15:19:06,083 - INFO - Chrome browser launched successfully.
+2026-11-18 15:19:06,084 - INFO - Opening SBP portal.
+2026-11-18 15:19:30,026 - INFO - SBP login wait completed.
+2026-11-18 15:19:30,027 - INFO - Opening EDAP portal in a second tab.
+2026-11-18 15:19:33,478 - INFO - EDAP login confirmed.
+2026-11-18 15:19:41,574 - INFO - Add Amendment Request opened.
+2026-11-18 15:19:41,574 - INFO - Starting CNIC processing. Total records: 3
+2026-11-18 15:19:41,584 - INFO - Processing CNIC 1/3: 3740573670362
+2026-11-18 15:19:41,584 - INFO - Processing CNIC 3740573670362 for 31-OCT-26
+2026-11-18 15:20:06,515 - INFO - CNIC 3740573670362: 'No data found' for 31-OCT-26, moving to previous month.
+2026-11-18 15:20:06,516 - INFO - Processing CNIC 3740573670362 for 30-SEP-26
+2026-11-18 15:20:28,091 - INFO - CNIC 3740573670362: 'No data found' for 30-SEP-26, moving to previous month.
+2026-11-18 15:20:28,091 - INFO - Processing CNIC 3740573670362 for 31-AUG-26
+2026-11-18 15:20:55,713 - INFO - Search submitted for entry 1. Data found for 31-AUG-26.
+2026-11-18 15:24:09,624 - ERROR - EachEntry_Activity_Function failed at row 1.
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\backup.py", line 443, in each_entry_row_function
+    each_entry_activity_function(driver, element_wait, cnic, index, total)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\backup.py", line 227, in each_entry_activity_function
+    element_wait.until(
+    ~~~~~~~~~~~~~~~~~~^
+        EC.element_to_be_clickable(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    ).click()
+    ^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\support\wait.py", line 121, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff70f65be05+5a55]
+	chromedriver!(No symbol) [0x7ff70f583230]
+	chromedriver!(No symbol) [0x7ff70f3a6e4d]
+	chromedriver!(No symbol) [0x7ff70f40266d]
+	chromedriver!(No symbol) [0x7ff70f40292c]
+	chromedriver!(No symbol) [0x7ff70f4559e7]
+	chromedriver!(No symbol) [0x7ff70f45267a]
+	chromedriver!(No symbol) [0x7ff70f3f4412]
+	chromedriver!(No symbol) [0x7ff70f3f5223]
+	chromedriver!GetHandleVerifier [0x7ff70fa6b1d1+414e21]
+	chromedriver!GetHandleVerifier [0x7ff70fa951fb+43ee4b]
+	chromedriver!GetHandleVerifier [0x7ff70fa896ce+43331e]
+	chromedriver!GetHandleVerifier [0x7ff70f76015e+109dae]
+	chromedriver!(No symbol) [0x7ff70f590e85]
+	chromedriver!(No symbol) [0x7ff70f58be14]
+	chromedriver!(No symbol) [0x7ff70f58bfa4]
+	chromedriver!(No symbol) [0x7ff70f576b0c]
+	KERNEL32!BaseThreadInitThunk [0x7ff94c2ddda7+17]
+	ntdll!RtlUserThreadStart [0x7ff94ddbee4c+2c]
+
+2026-11-18 15:24:09,633 - INFO - CNIC row processing finished: 0 succeeded, 1 failed, 2 not attempted.
+2026-11-18 15:24:09,633 - WARNING - Main function completed with errors: 0 succeeded, 1 failed, 2 not attempted.
+2026-11-18 15:24:09,633 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-18 15:41:53,907 - INFO - EDAP automation started.
+2026-11-18 15:41:53,908 - INFO - Main function started.
+2026-11-18 15:41:53,929 - INFO - Total CNIC records loaded: 3
+2026-11-18 15:41:58,867 - INFO - Chrome browser launched successfully.
+2026-11-18 15:41:58,867 - INFO - Opening SBP portal.
+2026-11-18 15:42:22,524 - INFO - SBP login wait completed.
+2026-11-18 15:42:22,525 - INFO - Opening EDAP portal in a second tab.
+2026-11-18 15:42:26,792 - INFO - EDAP login confirmed.
+2026-11-18 15:42:35,389 - INFO - Add Amendment Request opened.
+2026-11-18 15:42:35,389 - INFO - Starting CNIC processing. Total records: 3
+2026-11-18 15:42:35,397 - INFO - Processing CNIC 1/3: 3740573670362
+2026-11-18 15:42:35,397 - INFO - Processing CNIC 3740573670362 for 31-OCT-26
+2026-11-18 15:42:58,915 - INFO - CNIC 3740573670362: 'No data found' for 31-OCT-26, moving to previous month.
+2026-11-18 15:42:58,915 - INFO - Processing CNIC 3740573670362 for 30-SEP-26
+2026-11-18 15:43:25,821 - INFO - CNIC 3740573670362: 'No data found' for 30-SEP-26, moving to previous month.
+2026-11-18 15:43:25,822 - INFO - Processing CNIC 3740573670362 for 31-AUG-26
+2026-11-18 15:43:52,917 - INFO - Search submitted for entry 1. Data found for 31-AUG-26.
+2026-11-18 15:44:12,309 - INFO - Processing CNIC 2/3: 3720188020563
+2026-11-18 15:44:12,309 - INFO - Processing CNIC 3720188020563 for 31-OCT-26
+2026-11-18 15:47:12,574 - ERROR - EachEntry_Activity_Function failed at row 2.
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\backup.py", line 444, in each_entry_row_function
+    each_entry_activity_function(driver, element_wait, cnic, index, total)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\backup.py", line 157, in each_entry_activity_function
+    cnic_field = element_wait.until(
+        EC.element_to_be_clickable((By.XPATH, '//input[@id="P70_NEW_NIC"]'))
+    )
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\support\wait.py", line 121, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff70f65be05+5a55]
+	chromedriver!(No symbol) [0x7ff70f583230]
+	chromedriver!(No symbol) [0x7ff70f3a6e4d]
+	chromedriver!(No symbol) [0x7ff70f40266d]
+	chromedriver!(No symbol) [0x7ff70f40292c]
+	chromedriver!(No symbol) [0x7ff70f4559e7]
+	chromedriver!(No symbol) [0x7ff70f45267a]
+	chromedriver!(No symbol) [0x7ff70f3f4412]
+	chromedriver!(No symbol) [0x7ff70f3f5223]
+	chromedriver!GetHandleVerifier [0x7ff70fa6b1d1+414e21]
+	chromedriver!GetHandleVerifier [0x7ff70fa951fb+43ee4b]
+	chromedriver!GetHandleVerifier [0x7ff70fa896ce+43331e]
+	chromedriver!GetHandleVerifier [0x7ff70f76015e+109dae]
+	chromedriver!(No symbol) [0x7ff70f590e85]
+	chromedriver!(No symbol) [0x7ff70f58be14]
+	chromedriver!(No symbol) [0x7ff70f58bfa4]
+	chromedriver!(No symbol) [0x7ff70f576b0c]
+	KERNEL32!BaseThreadInitThunk [0x7ff94c2ddda7+17]
+	ntdll!RtlUserThreadStart [0x7ff94ddbee4c+2c]
+
+2026-11-18 15:47:12,634 - INFO - CNIC row processing finished: 1 succeeded, 1 failed, 1 not attempted.
+2026-11-18 15:47:12,634 - WARNING - Main function completed with errors: 1 succeeded, 1 failed, 1 not attempted.
+2026-11-18 15:47:12,636 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-18 15:49:21,896 - INFO - EDAP automation started.
+2026-11-18 15:49:21,896 - INFO - Main function started.
+2026-11-18 15:49:21,914 - INFO - Total CNIC records loaded: 3
+2026-11-18 15:49:27,559 - INFO - Chrome browser launched successfully.
+2026-11-18 15:49:27,560 - INFO - Opening SBP portal.
+2026-11-18 15:50:10,336 - INFO - SBP login wait completed.
+2026-11-18 15:50:10,336 - INFO - Opening EDAP portal in a second tab.
+2026-11-18 15:50:14,634 - INFO - EDAP login confirmed.
+2026-11-18 15:50:22,215 - INFO - Add Amendment Request opened.
+2026-11-18 15:50:22,215 - INFO - Starting CNIC processing. Total records: 3
+2026-11-18 15:50:22,223 - INFO - Processing CNIC 1/3: 3740573670362
+2026-11-18 15:50:22,223 - INFO - Processing CNIC 3740573670362 for 31-OCT-26
+2026-11-18 15:50:41,671 - INFO - CNIC 3740573670362: 'No data found' for 31-OCT-26, moving to previous month.
+2026-11-18 15:50:41,672 - INFO - Processing CNIC 3740573670362 for 30-SEP-26
+2026-11-18 15:51:05,147 - INFO - CNIC 3740573670362: 'No data found' for 30-SEP-26, moving to previous month.
+2026-11-18 15:51:05,147 - INFO - Processing CNIC 3740573670362 for 31-AUG-26
+2026-11-18 15:51:31,380 - INFO - Search submitted for entry 1. Data found for 31-AUG-26.
+2026-11-18 15:51:50,761 - INFO - Processing CNIC 2/3: 3720188020563
+2026-11-18 15:51:50,761 - INFO - Processing CNIC 3720188020563 for 31-OCT-26
+2026-11-18 15:54:50,932 - ERROR - EachEntry_Activity_Function failed at row 2.
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\backup.py", line 444, in each_entry_row_function
+    each_entry_activity_function(driver, element_wait, cnic, index, total)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\backup.py", line 157, in each_entry_activity_function
+    cnic_field = element_wait.until(
+        EC.element_to_be_clickable((By.XPATH, '//input[@id="P70_NEW_NIC"]'))
+    )
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\support\wait.py", line 121, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff70f65be05+5a55]
+	chromedriver!(No symbol) [0x7ff70f583230]
+	chromedriver!(No symbol) [0x7ff70f3a6e4d]
+	chromedriver!(No symbol) [0x7ff70f40266d]
+	chromedriver!(No symbol) [0x7ff70f40292c]
+	chromedriver!(No symbol) [0x7ff70f4559e7]
+	chromedriver!(No symbol) [0x7ff70f45267a]
+	chromedriver!(No symbol) [0x7ff70f3f4412]
+	chromedriver!(No symbol) [0x7ff70f3f5223]
+	chromedriver!GetHandleVerifier [0x7ff70fa6b1d1+414e21]
+	chromedriver!GetHandleVerifier [0x7ff70fa951fb+43ee4b]
+	chromedriver!GetHandleVerifier [0x7ff70fa896ce+43331e]
+	chromedriver!GetHandleVerifier [0x7ff70f76015e+109dae]
+	chromedriver!(No symbol) [0x7ff70f590e85]
+	chromedriver!(No symbol) [0x7ff70f58be14]
+	chromedriver!(No symbol) [0x7ff70f58bfa4]
+	chromedriver!(No symbol) [0x7ff70f576b0c]
+	KERNEL32!BaseThreadInitThunk [0x7ff94c2ddda7+17]
+	ntdll!RtlUserThreadStart [0x7ff94ddbee4c+2c]
+
+2026-11-18 15:54:50,951 - INFO - CNIC row processing finished: 1 succeeded, 1 failed, 1 not attempted.
+2026-11-18 15:54:50,952 - WARNING - Main function completed with errors: 1 succeeded, 1 failed, 1 not attempted.
+2026-11-18 15:54:50,953 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-18 16:07:55,958 - INFO - EDAP automation started.
+2026-11-18 16:07:55,958 - INFO - Main function started.
+2026-11-18 16:07:55,974 - INFO - Total CNIC records loaded: 4
+2026-11-18 16:08:00,361 - INFO - Chrome browser launched successfully.
+2026-11-18 16:08:00,361 - INFO - Opening SBP portal.
+2026-11-18 16:09:05,752 - INFO - SBP login wait completed.
+2026-11-18 16:09:05,753 - INFO - Opening EDAP portal in a second tab.
+2026-11-18 16:09:10,887 - INFO - EDAP login confirmed.
+2026-11-18 16:09:21,218 - INFO - Add Amendment Request opened.
+2026-11-18 16:09:21,219 - INFO - Starting CNIC processing. Total records: 4
+2026-11-18 16:09:21,222 - INFO - Processing CNIC 1/4: 3110550025330
+2026-11-18 16:09:21,222 - INFO - Processing CNIC 3110550025330 for 31-OCT-26
+2026-11-18 16:09:51,291 - INFO - Search submitted for entry 1. Data found for 31-OCT-26.
+2026-11-18 16:12:05,071 - ERROR - EachEntry_Activity_Function failed at row 1.
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Program Files\Python314\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python314\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python314\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Program Files\Python314\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\backup.py", line 438, in each_entry_row_function
+    each_entry_activity_function(driver, element_wait, cnic, index, total)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\backup.py", line 235, in each_entry_activity_function
+    ).click()
+      ~~~~~^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webelement.py", line 112, in click
+    self._execute(Command.CLICK_ELEMENT)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webelement.py", line 505, in _execute
+    return self._parent.execute(command, params)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 563, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 435, in execute
+    return self._request(command_info[0], url, body=data)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 459, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        method, url, fields=fields, headers=headers, **urlopen_kw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\util\retry.py", line 510, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 542, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 373, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='localhost', port=53833): Read timed out. (read timeout=120)
+2026-11-18 16:12:05,167 - INFO - CNIC row processing finished: 0 succeeded, 1 failed, 3 not attempted.
+2026-11-18 16:12:05,167 - WARNING - Main function completed with errors: 0 succeeded, 1 failed, 3 not attempted.
+2026-11-18 16:12:05,168 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-18 16:34:35,413 - INFO - EDAP automation started.
+2026-11-18 16:34:35,414 - INFO - Main function started.
+2026-11-18 16:34:35,436 - INFO - Total CNIC records loaded: 4
+2026-11-18 16:34:50,029 - INFO - Chrome browser launched successfully.
+2026-11-18 16:34:50,030 - INFO - Opening SBP portal.
+2026-11-18 16:38:38,182 - INFO - SBP login wait completed.
+2026-11-18 16:38:38,182 - INFO - Opening EDAP portal in a second tab.
+2026-11-18 16:40:14,390 - INFO - EDAP login confirmed.
+2026-11-18 16:41:38,170 - INFO - Add Amendment Request opened.
+2026-11-18 16:41:38,170 - INFO - Starting CNIC processing. Total records: 4
+2026-11-18 16:41:38,181 - INFO - Processing CNIC 1/4: 3110550025330
+2026-11-18 16:41:38,182 - INFO - Processing CNIC 3110550025330 for 31-OCT-26
+2026-11-18 16:43:15,502 - INFO - Search submitted for entry 1. Data found for 31-OCT-26.
+2026-11-18 16:44:13,313 - INFO - Processing CNIC 2/4: 3740573670362
+2026-11-18 16:44:13,313 - INFO - Processing CNIC 3740573670362 for 31-OCT-26
+2026-11-18 16:47:13,545 - ERROR - EachEntry_Activity_Function failed at row 2.
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\backup.py", line 438, in each_entry_row_function
+    each_entry_activity_function(driver, element_wait, cnic, index, total)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\backup.py", line 158, in each_entry_activity_function
+    cnic_field = element_wait.until(
+        EC.element_to_be_clickable((By.XPATH, '//input[@id="P70_NEW_NIC"]'))
+    )
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\support\wait.py", line 121, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff70f65be05+5a55]
+	chromedriver!(No symbol) [0x7ff70f583230]
+	chromedriver!(No symbol) [0x7ff70f3a6e4d]
+	chromedriver!(No symbol) [0x7ff70f40266d]
+	chromedriver!(No symbol) [0x7ff70f40292c]
+	chromedriver!(No symbol) [0x7ff70f4559e7]
+	chromedriver!(No symbol) [0x7ff70f45267a]
+	chromedriver!(No symbol) [0x7ff70f3f4412]
+	chromedriver!(No symbol) [0x7ff70f3f5223]
+	chromedriver!GetHandleVerifier [0x7ff70fa6b1d1+414e21]
+	chromedriver!GetHandleVerifier [0x7ff70fa951fb+43ee4b]
+	chromedriver!GetHandleVerifier [0x7ff70fa896ce+43331e]
+	chromedriver!GetHandleVerifier [0x7ff70f76015e+109dae]
+	chromedriver!(No symbol) [0x7ff70f590e85]
+	chromedriver!(No symbol) [0x7ff70f58be14]
+	chromedriver!(No symbol) [0x7ff70f58bfa4]
+	chromedriver!(No symbol) [0x7ff70f576b0c]
+	KERNEL32!BaseThreadInitThunk [0x7ff94c2ddda7+17]
+	ntdll!RtlUserThreadStart [0x7ff94ddbee4c+2c]
+
+2026-11-18 16:47:13,554 - INFO - CNIC row processing finished: 1 succeeded, 1 failed, 2 not attempted.
+2026-11-18 16:47:13,554 - WARNING - Main function completed with errors: 1 succeeded, 1 failed, 2 not attempted.
+2026-11-18 16:47:13,555 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-18 17:06:20,796 - INFO - EDAP automation started.
+2026-11-18 17:06:20,796 - INFO - Main function started.
+2026-11-18 17:06:20,822 - INFO - Total CNIC records loaded: 4
+2026-11-18 17:06:33,977 - INFO - Chrome browser launched successfully.
+2026-11-18 17:06:33,978 - INFO - Opening SBP portal.
+2026-11-18 17:07:59,795 - INFO - SBP login wait completed.
+2026-11-18 17:07:59,796 - INFO - Opening EDAP portal in a second tab.
+2026-11-18 17:08:12,517 - INFO - EDAP login confirmed.
+2026-11-18 17:08:31,498 - INFO - Add Amendment Request opened.
+2026-11-18 17:08:31,499 - INFO - Starting CNIC processing. Total records: 4
+2026-11-18 17:08:31,505 - INFO - Processing CNIC 1/4: 3110550025330
+2026-11-18 17:08:31,505 - INFO - Processing CNIC 3110550025330 for 31-OCT-26
+2026-11-18 17:09:23,067 - INFO - Search submitted for entry 1. Data found for 31-OCT-26.
+2026-11-18 17:11:23,152 - ERROR - EachEntry_Activity_Function failed at row 1.
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Program Files\Python314\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python314\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python314\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Program Files\Python314\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\backup.py", line 447, in each_entry_row_function
+    each_entry_activity_function(driver, element_wait, cnic, index, total)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\backup.py", line 224, in each_entry_activity_function
+    ).click()
+      ~~~~~^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webelement.py", line 112, in click
+    self._execute(Command.CLICK_ELEMENT)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webelement.py", line 505, in _execute
+    return self._parent.execute(command, params)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 563, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 435, in execute
+    return self._request(command_info[0], url, body=data)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 459, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        method, url, fields=fields, headers=headers, **urlopen_kw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\util\retry.py", line 510, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 542, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 373, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='localhost', port=65392): Read timed out. (read timeout=120)
+2026-11-18 17:11:23,351 - INFO - CNIC row processing finished: 0 succeeded, 1 failed, 3 not attempted.
+2026-11-18 17:11:23,352 - WARNING - Main function completed with errors: 0 succeeded, 1 failed, 3 not attempted.
+2026-11-18 17:11:23,353 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-20 11:05:02,315 - INFO - EDAP automation started.
+2026-11-20 11:05:02,315 - INFO - Main function started.
+2026-11-20 11:05:02,402 - INFO - Total CNIC records loaded: 4
+2026-11-20 11:05:22,229 - INFO - Chrome browser launched successfully.
+2026-11-20 11:05:22,231 - INFO - Opening SBP portal.
+2026-11-20 11:06:01,176 - INFO - SBP login wait completed.
+2026-11-20 11:06:01,176 - INFO - Opening EDAP portal in a second tab.
+2026-11-20 11:06:05,898 - INFO - EDAP login confirmed.
+2026-11-20 11:06:13,679 - INFO - Add Amendment Request opened.
+2026-11-20 11:06:13,680 - INFO - Starting CNIC processing. Total records: 4
+2026-11-20 11:06:13,688 - INFO - Processing CNIC 1/4: 3110550025330
+2026-11-20 11:06:13,690 - INFO - Processing CNIC 3110550025330 for 31-OCT-26
+2026-11-20 11:06:41,211 - INFO - Search submitted for entry 1. Data found for 31-OCT-26.
+2026-11-20 11:07:23,523 - INFO - Processing CNIC 2/4: 3740573670362
+2026-11-20 11:07:23,524 - INFO - Processing CNIC 3740573670362 for 31-OCT-26
+2026-11-20 11:10:23,682 - ERROR - EachEntry_Activity_Function failed at row 2.
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\backup.py", line 447, in each_entry_row_function
+    each_entry_activity_function(driver, element_wait, cnic, index, total)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\backup.py", line 158, in each_entry_activity_function
+    cnic_field = element_wait.until(
+        EC.element_to_be_clickable((By.XPATH, '//input[@id="P70_NEW_NIC"]'))
+    )
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\support\wait.py", line 121, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7629abe05+5a55]
+	chromedriver!(No symbol) [0x7ff7628d3230]
+	chromedriver!(No symbol) [0x7ff7626f6e4d]
+	chromedriver!(No symbol) [0x7ff76275266d]
+	chromedriver!(No symbol) [0x7ff76275292c]
+	chromedriver!(No symbol) [0x7ff7627a59e7]
+	chromedriver!(No symbol) [0x7ff7627a267a]
+	chromedriver!(No symbol) [0x7ff762744412]
+	chromedriver!(No symbol) [0x7ff762745223]
+	chromedriver!GetHandleVerifier [0x7ff762dbb1d1+414e21]
+	chromedriver!GetHandleVerifier [0x7ff762de51fb+43ee4b]
+	chromedriver!GetHandleVerifier [0x7ff762dd96ce+43331e]
+	chromedriver!GetHandleVerifier [0x7ff762ab015e+109dae]
+	chromedriver!(No symbol) [0x7ff7628e0e85]
+	chromedriver!(No symbol) [0x7ff7628dbe14]
+	chromedriver!(No symbol) [0x7ff7628dbfa4]
+	chromedriver!(No symbol) [0x7ff7628c6b0c]
+	KERNEL32!BaseThreadInitThunk [0x7ffe719cdda7+17]
+	ntdll!RtlUserThreadStart [0x7ffe72b1ee4c+2c]
+
+2026-11-20 11:10:23,732 - INFO - CNIC row processing finished: 1 succeeded, 1 failed, 2 not attempted.
+2026-11-20 11:10:23,733 - WARNING - Main function completed with errors: 1 succeeded, 1 failed, 2 not attempted.
+2026-11-20 11:10:23,735 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-20 11:57:26,624 - INFO - EDAP automation started.
+2026-11-20 11:57:26,625 - INFO - Main function started.
+2026-11-20 11:57:26,662 - INFO - Total CNIC records loaded: 4
+2026-11-20 11:57:32,819 - INFO - Chrome browser launched successfully.
+2026-11-20 11:57:32,820 - INFO - Opening SBP portal.
+2026-11-20 11:58:00,750 - INFO - SBP login wait completed.
+2026-11-20 11:58:00,750 - INFO - Opening EDAP portal in a second tab.
+2026-11-20 11:58:03,820 - INFO - EDAP login confirmed.
+2026-11-20 11:58:03,820 - INFO - Starting CNIC processing. Total records: 4
+2026-11-20 11:58:03,825 - INFO - Processing CNIC 1/4: 3110550025330
+2026-11-20 11:58:13,891 - INFO - Add Amendment Request opened.
+2026-11-20 11:58:13,891 - INFO - Processing CNIC 3110550025330 for 31-OCT-26
+2026-11-20 11:58:44,643 - INFO - Search submitted for entry 1. Data found for 31-OCT-26.
+2026-11-20 11:59:21,572 - INFO - CNIC 3110550025330: 31-OCT-26 submitted.
+2026-11-20 11:59:32,156 - INFO - Add Amendment Request opened.
+2026-11-20 11:59:32,157 - INFO - Processing CNIC 3110550025330 for 30-SEP-26
+2026-11-20 11:59:46,522 - INFO - Search submitted for entry 1. Data found for 30-SEP-26.
+2026-11-20 12:00:27,182 - INFO - CNIC 3110550025330: 30-SEP-26 submitted.
+2026-11-20 12:00:39,138 - INFO - Add Amendment Request opened.
+2026-11-20 12:00:39,139 - INFO - Processing CNIC 3110550025330 for 31-AUG-26
+2026-11-20 12:01:07,249 - INFO - Search submitted for entry 1. Data found for 31-AUG-26.
+2026-11-20 12:01:41,502 - INFO - CNIC 3110550025330: 31-AUG-26 submitted.
+2026-11-20 12:01:52,456 - INFO - Add Amendment Request opened.
+2026-11-20 12:01:52,457 - INFO - Processing CNIC 3110550025330 for 31-JUL-26
+2026-11-20 12:02:28,640 - INFO - Search submitted for entry 1. Data found for 31-JUL-26.
+2026-11-20 12:03:10,099 - INFO - CNIC 3110550025330: 31-JUL-26 submitted.
+2026-11-20 12:03:23,201 - INFO - Add Amendment Request opened.
+2026-11-20 12:03:23,202 - INFO - Processing CNIC 3110550025330 for 30-JUN-26
+2026-11-20 12:03:48,670 - INFO - Search submitted for entry 1. Data found for 30-JUN-26.
+2026-11-20 12:04:26,397 - INFO - CNIC 3110550025330: 30-JUN-26 submitted.
+2026-11-20 12:04:37,788 - INFO - Add Amendment Request opened.
+2026-11-20 12:04:37,791 - INFO - Processing CNIC 3110550025330 for 31-MAY-26
+2026-11-20 12:04:55,804 - INFO - Search submitted for entry 1. Data found for 31-MAY-26.
+2026-11-20 12:07:08,349 - ERROR - EachEntry_Activity_Function failed at row 1.
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Program Files\Python314\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python314\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python314\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Program Files\Python314\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\backup.py", line 481, in each_entry_row_function
+    each_entry_activity_function(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        driver, element_wait, edap_tab, edap_url, cnic, index, total
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\VsCode\Edap Automation\backup.py", line 451, in each_entry_activity_function
+    amendment_form_function(driver, element_wait)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\backup.py", line 166, in amendment_form_function
+    ).click()
+      ~~~~~^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webelement.py", line 112, in click
+    self._execute(Command.CLICK_ELEMENT)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webelement.py", line 505, in _execute
+    return self._parent.execute(command, params)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 563, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 435, in execute
+    return self._request(command_info[0], url, body=data)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 459, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        method, url, fields=fields, headers=headers, **urlopen_kw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\util\retry.py", line 510, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 542, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 373, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='localhost', port=53944): Read timed out. (read timeout=120)
+2026-11-20 12:07:08,565 - INFO - CNIC row processing finished: 0 succeeded, 1 failed, 3 not attempted.
+2026-11-20 12:07:08,566 - WARNING - Main function completed with errors: 0 succeeded, 1 failed, 3 not attempted.
+2026-11-20 12:07:08,567 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-20 13:01:29,172 - INFO - EDAP automation started.
+2026-11-20 13:01:29,172 - INFO - Main function started.
+2026-11-20 13:01:29,196 - INFO - Total CNIC records loaded: 4
+2026-11-20 13:01:39,591 - INFO - Chrome browser launched successfully.
+2026-11-20 13:01:39,591 - INFO - Opening SBP portal.
+2026-11-20 13:02:13,327 - INFO - SBP login wait completed.
+2026-11-20 13:02:13,327 - INFO - Opening EDAP portal in a second tab.
+2026-11-20 13:02:16,770 - INFO - EDAP login confirmed.
+2026-11-20 13:02:16,770 - INFO - Starting CNIC processing. Total records: 4
+2026-11-20 13:02:16,776 - INFO - Processing CNIC 1/4: 3110550025330
+2026-11-20 13:02:27,092 - INFO - Add Amendment Request opened.
+2026-11-20 13:02:27,093 - INFO - Processing CNIC 3110550025330 for 31-OCT-26
+2026-11-20 13:02:47,025 - INFO - Search submitted for entry 1. Data found for 31-OCT-26.
+2026-11-20 13:03:27,372 - INFO - CNIC 3110550025330: 31-OCT-26 submitted.
+2026-11-20 13:03:39,092 - INFO - Add Amendment Request opened.
+2026-11-20 13:03:39,093 - INFO - Processing CNIC 3110550025330 for 30-SEP-26
+2026-11-20 13:04:01,579 - INFO - Search submitted for entry 1. Data found for 30-SEP-26.
+2026-11-20 13:04:37,894 - INFO - CNIC 3110550025330: 30-SEP-26 submitted.
+2026-11-20 13:04:47,608 - INFO - Add Amendment Request opened.
+2026-11-20 13:04:47,609 - INFO - Processing CNIC 3110550025330 for 31-AUG-26
+2026-11-20 13:05:09,368 - INFO - Search submitted for entry 1. Data found for 31-AUG-26.
+2026-11-20 13:05:43,292 - INFO - CNIC 3110550025330: 31-AUG-26 submitted.
+2026-11-20 13:05:53,608 - INFO - Add Amendment Request opened.
+2026-11-20 13:05:53,609 - INFO - Processing CNIC 3110550025330 for 31-JUL-26
+2026-11-20 13:06:20,994 - INFO - Search submitted for entry 1. Data found for 31-JUL-26.
+2026-11-20 13:06:55,299 - INFO - CNIC 3110550025330: 31-JUL-26 submitted.
+2026-11-20 13:07:05,171 - INFO - Add Amendment Request opened.
+2026-11-20 13:07:05,171 - INFO - Processing CNIC 3110550025330 for 30-JUN-26
+2026-11-20 13:07:22,962 - INFO - Search submitted for entry 1. Data found for 30-JUN-26.
+2026-11-20 13:07:56,476 - INFO - CNIC 3110550025330: 30-JUN-26 submitted.
+2026-11-20 13:08:06,617 - INFO - Add Amendment Request opened.
+2026-11-20 13:08:06,617 - INFO - Processing CNIC 3110550025330 for 31-MAY-26
+2026-11-20 13:08:18,886 - INFO - Search submitted for entry 1. Data found for 31-MAY-26.
+2026-11-20 13:08:54,317 - INFO - CNIC 3110550025330: 31-MAY-26 submitted.
+2026-11-20 13:09:04,391 - INFO - Add Amendment Request opened.
+2026-11-20 13:09:04,396 - INFO - Processing CNIC 3110550025330 for 30-APR-26
+2026-11-20 13:09:15,963 - INFO - Search submitted for entry 1. Data found for 30-APR-26.
+2026-11-20 13:09:49,508 - INFO - CNIC 3110550025330: 30-APR-26 submitted.
+2026-11-20 13:09:59,126 - INFO - Add Amendment Request opened.
+2026-11-20 13:09:59,128 - INFO - Processing CNIC 3110550025330 for 31-MAR-26
+2026-11-20 13:10:12,088 - INFO - Search submitted for entry 1. Data found for 31-MAR-26.
+2026-11-20 13:10:40,463 - INFO - CNIC 3110550025330: 31-MAR-26 submitted.
+2026-11-20 13:10:52,159 - INFO - Add Amendment Request opened.
+2026-11-20 13:10:52,159 - INFO - Processing CNIC 3110550025330 for 28-FEB-26
+2026-11-20 13:11:03,132 - INFO - Search submitted for entry 1. Data found for 28-FEB-26.
+2026-11-20 13:11:35,657 - INFO - CNIC 3110550025330: 28-FEB-26 submitted.
+2026-11-20 13:11:45,910 - INFO - Add Amendment Request opened.
+2026-11-20 13:11:45,914 - INFO - Processing CNIC 3110550025330 for 31-JAN-26
+2026-11-20 13:11:57,947 - INFO - Search submitted for entry 1. Data found for 31-JAN-26.
+2026-11-20 13:12:34,134 - INFO - CNIC 3110550025330: 31-JAN-26 submitted.
+2026-11-20 13:12:43,774 - INFO - Add Amendment Request opened.
+2026-11-20 13:12:43,775 - INFO - Processing CNIC 3110550025330 for 31-DEC-25
+2026-11-20 13:12:57,890 - INFO - Search submitted for entry 1. Data found for 31-DEC-25.
+2026-11-20 13:13:27,072 - INFO - CNIC 3110550025330: 31-DEC-25 submitted.
+2026-11-20 13:13:39,109 - INFO - Add Amendment Request opened.
+2026-11-20 13:13:39,111 - INFO - Processing CNIC 3110550025330 for 30-NOV-25
+2026-11-20 13:13:51,702 - INFO - Search submitted for entry 1. Data found for 30-NOV-25.
+2026-11-20 13:14:30,213 - INFO - CNIC 3110550025330: 30-NOV-25 submitted.
+2026-11-20 13:14:43,012 - INFO - Add Amendment Request opened.
+2026-11-20 13:14:43,014 - INFO - Processing CNIC 3110550025330 for 31-OCT-25
+2026-11-20 13:14:56,230 - INFO - Search submitted for entry 1. Data found for 31-OCT-25.
+2026-11-20 13:15:34,128 - INFO - CNIC 3110550025330: 31-OCT-25 submitted.
+2026-11-20 13:15:44,190 - INFO - Add Amendment Request opened.
+2026-11-20 13:15:44,190 - INFO - Processing CNIC 3110550025330 for 30-SEP-25
+2026-11-20 13:15:59,879 - INFO - Search submitted for entry 1. Data found for 30-SEP-25.
+2026-11-20 13:16:40,095 - INFO - CNIC 3110550025330: 30-SEP-25 submitted.
+2026-11-20 13:16:52,670 - INFO - Add Amendment Request opened.
+2026-11-20 13:16:52,670 - INFO - Processing CNIC 3110550025330 for 31-AUG-25
+2026-11-20 13:17:04,559 - INFO - Search submitted for entry 1. Data found for 31-AUG-25.
+2026-11-20 13:17:39,465 - INFO - CNIC 3110550025330: 31-AUG-25 submitted.
+2026-11-20 13:17:48,964 - INFO - Add Amendment Request opened.
+2026-11-20 13:17:48,966 - INFO - Processing CNIC 3110550025330 for 31-JUL-25
+2026-11-20 13:17:59,848 - INFO - CNIC 3110550025330: 'No data found' for 31-JUL-25, moving to previous month.
+2026-11-20 13:17:59,849 - INFO - Processing CNIC 3110550025330 for 30-JUN-25
+2026-11-20 13:18:10,622 - INFO - Search submitted for entry 1. Data found for 30-JUN-25.
+2026-11-20 13:18:45,825 - INFO - CNIC 3110550025330: 30-JUN-25 submitted.
+2026-11-20 13:18:56,915 - INFO - Add Amendment Request opened.
+2026-11-20 13:18:56,916 - INFO - Processing CNIC 3110550025330 for 31-MAY-25
+2026-11-20 13:19:07,020 - INFO - CNIC 3110550025330: 'No data found' for 31-MAY-25, moving to previous month.
+2026-11-20 13:19:07,020 - INFO - CNIC 3110550025330 finished. Months submitted: ['31-OCT-26', '30-SEP-26', '31-AUG-26', '31-JUL-26', '30-JUN-26', '31-MAY-26', '30-APR-26', '31-MAR-26', '28-FEB-26', '31-JAN-26', '31-DEC-25', '30-NOV-25', '31-OCT-25', '30-SEP-25', '31-AUG-25', '30-JUN-25']
+2026-11-20 13:19:07,026 - INFO - Processing CNIC 2/4: 3740573670362
+2026-11-20 13:19:17,754 - INFO - Add Amendment Request opened.
+2026-11-20 13:19:17,758 - INFO - Processing CNIC 3740573670362 for 31-OCT-26
+2026-11-20 13:19:36,780 - INFO - CNIC 3740573670362: 'No data found' for 31-OCT-26, moving to previous month.
+2026-11-20 13:19:36,782 - INFO - Processing CNIC 3740573670362 for 30-SEP-26
+2026-11-20 13:19:57,163 - INFO - CNIC 3740573670362: 'No data found' for 30-SEP-26, moving to previous month.
+2026-11-20 13:19:57,163 - INFO - Processing CNIC 3740573670362 for 31-AUG-26
+2026-11-20 13:20:16,137 - INFO - Search submitted for entry 2. Data found for 31-AUG-26.
+2026-11-20 13:20:51,879 - INFO - CNIC 3740573670362: 31-AUG-26 submitted.
+2026-11-20 13:21:01,057 - INFO - Add Amendment Request opened.
+2026-11-20 13:21:01,059 - INFO - Processing CNIC 3740573670362 for 31-JUL-26
+2026-11-20 13:21:22,481 - INFO - Search submitted for entry 2. Data found for 31-JUL-26.
+2026-11-20 13:21:56,457 - INFO - CNIC 3740573670362: 31-JUL-26 submitted.
+2026-11-20 13:22:05,881 - INFO - Add Amendment Request opened.
+2026-11-20 13:22:05,882 - INFO - Processing CNIC 3740573670362 for 30-JUN-26
+2026-11-20 13:22:23,377 - INFO - Search submitted for entry 2. Data found for 30-JUN-26.
+2026-11-20 14:22:59,211 - ERROR - EachEntry_Activity_Function failed at row 2.
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 540, in _make_request
+    response = conn.getresponse()
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connection.py", line 638, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Program Files\Python314\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python314\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python314\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Program Files\Python314\Lib\socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\backup.py", line 496, in each_entry_row_function
+    each_entry_activity_function(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        driver, element_wait, edap_tab, edap_url, cnic, index, total
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\VsCode\Edap Automation\backup.py", line 466, in each_entry_activity_function
+    amendment_form_function(driver, element_wait)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\backup.py", line 368, in amendment_form_function
+    ).click()
+      ~~~~~^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webelement.py", line 112, in click
+    self._execute(Command.CLICK_ELEMENT)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webelement.py", line 505, in _execute
+    return self._parent.execute(command, params)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 563, in execute
+    response = cast(RemoteConnection, self.command_executor).execute(driver_command, params)
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 435, in execute
+    return self._request(command_info[0], url, body=data)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 459, in _request
+    response = self._conn.request(method, url, body=body, headers=headers, timeout=self._client_config.timeout)
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
+    return self.request_encode_body(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        method, url, fields=fields, headers=headers, **urlopen_kw
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+    return self.urlopen(method, url, **extra_kw)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\util\retry.py", line 510, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 542, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\VsCode\Edap Automation\venv\Lib\site-packages\urllib3\connectionpool.py", line 373, in _raise_timeout
+    raise ReadTimeoutError(
+        self, url, f"Read timed out. (read timeout={timeout_value})"
+    ) from err
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='localhost', port=50013): Read timed out. (read timeout=600)
+2026-11-20 14:22:59,982 - INFO - CNIC row processing finished: 1 succeeded, 1 failed, 2 not attempted.
+2026-11-20 14:22:59,982 - WARNING - Main function completed with errors: 1 succeeded, 1 failed, 2 not attempted.
+2026-11-20 14:23:00,015 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-20 14:48:31,035 - INFO - EDAP automation started.
+2026-11-20 14:48:31,035 - INFO - Main function started.
+2026-11-20 14:48:31,064 - INFO - Total CNIC records loaded: 3
+2026-11-20 14:48:51,017 - INFO - Chrome browser launched successfully.
+2026-11-20 14:48:51,017 - INFO - Opening SBP portal.
+2026-11-20 14:49:15,790 - INFO - SBP login wait completed.
+2026-11-20 14:49:15,790 - INFO - Opening EDAP portal in a second tab.
+2026-11-20 14:49:18,453 - INFO - EDAP login confirmed.
+2026-11-20 14:49:18,454 - INFO - Starting CNIC processing. Total records: 3
+2026-11-20 14:49:18,458 - INFO - Processing CNIC 1/3: 3740573670362
+2026-11-20 14:49:28,055 - INFO - Add Amendment Request opened.
+2026-11-20 14:49:28,057 - INFO - Processing CNIC 3740573670362 for 31-OCT-26
+2026-11-20 14:49:47,408 - INFO - CNIC 3740573670362: 'No data found' for 31-OCT-26, moving to previous month.
+2026-11-20 14:49:47,409 - INFO - Processing CNIC 3740573670362 for 30-SEP-26
+2026-11-20 14:50:07,922 - INFO - CNIC 3740573670362: 'No data found' for 30-SEP-26, moving to previous month.
+2026-11-20 14:50:07,923 - INFO - Processing CNIC 3740573670362 for 31-AUG-26
+2026-11-20 14:50:28,743 - INFO - Search submitted for entry 1. Data found for 31-AUG-26.
+2026-11-20 14:50:57,626 - INFO - CNIC 3740573670362: 31-AUG-26 submitted.
+2026-11-20 14:51:08,583 - INFO - Add Amendment Request opened.
+2026-11-20 14:51:08,583 - INFO - Processing CNIC 3740573670362 for 31-JUL-26
+2026-11-20 14:51:32,550 - INFO - Search submitted for entry 1. Data found for 31-JUL-26.
+2026-11-20 14:52:11,738 - INFO - CNIC 3740573670362: 31-JUL-26 submitted.
+2026-11-20 14:52:21,918 - INFO - Add Amendment Request opened.
+2026-11-20 14:52:21,921 - INFO - Processing CNIC 3740573670362 for 30-JUN-26
+2026-11-20 14:52:39,876 - INFO - Search submitted for entry 1. Data found for 30-JUN-26.
+2026-11-20 14:53:20,753 - INFO - CNIC 3740573670362: 30-JUN-26 submitted.
+2026-11-20 14:53:25,555 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-20 14:54:44,492 - INFO - EDAP automation started.
+2026-11-20 14:54:44,492 - INFO - Main function started.
+2026-11-20 14:54:44,510 - INFO - Total CNIC records loaded: 2
+2026-11-20 14:54:49,146 - INFO - Chrome browser launched successfully.
+2026-11-20 14:54:49,146 - INFO - Opening SBP portal.
+2026-11-20 14:55:08,893 - INFO - SBP login wait completed.
+2026-11-20 14:55:08,893 - INFO - Opening EDAP portal in a second tab.
+2026-11-20 14:55:12,024 - INFO - EDAP login confirmed.
+2026-11-20 14:55:12,025 - INFO - Starting CNIC processing. Total records: 2
+2026-11-20 14:55:12,031 - INFO - Processing CNIC 1/2: 6110139161834
+2026-11-20 14:55:22,993 - INFO - Add Amendment Request opened.
+2026-11-20 14:55:22,995 - INFO - Processing CNIC 6110139161834 for 31-OCT-26
+2026-11-20 14:55:42,021 - INFO - CNIC 6110139161834: 'No data found' for 31-OCT-26, moving to previous month.
+2026-11-20 14:55:42,021 - INFO - Processing CNIC 6110139161834 for 30-SEP-26
+2026-11-20 14:56:04,376 - INFO - CNIC 6110139161834: 'No data found' for 30-SEP-26, moving to previous month.
+2026-11-20 14:56:04,378 - INFO - Processing CNIC 6110139161834 for 31-AUG-26
+2026-11-20 14:56:26,924 - INFO - Search submitted for entry 1. Data found for 31-AUG-26.
+2026-11-20 14:56:57,724 - INFO - CNIC 6110139161834: 31-AUG-26 submitted.
+2026-11-20 14:57:08,909 - INFO - Add Amendment Request opened.
+2026-11-20 14:57:08,910 - INFO - Processing CNIC 6110139161834 for 31-JUL-26
+2026-11-20 14:57:33,771 - INFO - Search submitted for entry 1. Data found for 31-JUL-26.
+2026-11-20 14:58:08,178 - INFO - CNIC 6110139161834: 31-JUL-26 submitted.
+2026-11-20 14:58:17,902 - INFO - Add Amendment Request opened.
+2026-11-20 14:58:17,903 - INFO - Processing CNIC 6110139161834 for 30-JUN-26
+2026-11-20 14:58:37,868 - INFO - Search submitted for entry 1. Data found for 30-JUN-26.
+2026-11-20 14:59:14,493 - INFO - CNIC 6110139161834: 30-JUN-26 submitted.
+2026-11-20 14:59:26,134 - INFO - Add Amendment Request opened.
+2026-11-20 14:59:26,134 - INFO - Processing CNIC 6110139161834 for 31-MAY-26
+2026-11-20 14:59:39,907 - INFO - Search submitted for entry 1. Data found for 31-MAY-26.
+2026-11-20 15:00:18,626 - INFO - CNIC 6110139161834: 31-MAY-26 submitted.
+2026-11-20 15:00:28,362 - INFO - Add Amendment Request opened.
+2026-11-20 15:00:28,369 - INFO - Processing CNIC 6110139161834 for 30-APR-26
+2026-11-20 15:00:42,355 - INFO - Search submitted for entry 1. Data found for 30-APR-26.
+2026-11-20 15:01:56,600 - INFO - CNIC 6110139161834: 30-APR-26 submitted.
+2026-11-20 15:02:09,152 - INFO - Add Amendment Request opened.
+2026-11-20 15:02:09,180 - INFO - Processing CNIC 6110139161834 for 31-MAR-26
+2026-11-20 15:02:20,875 - INFO - Search submitted for entry 1. Data found for 31-MAR-26.
+2026-11-20 15:03:00,274 - INFO - CNIC 6110139161834: 31-MAR-26 submitted.
+2026-11-20 15:03:10,222 - INFO - Add Amendment Request opened.
+2026-11-20 15:03:10,223 - INFO - Processing CNIC 6110139161834 for 28-FEB-26
+2026-11-20 15:03:21,768 - INFO - Search submitted for entry 1. Data found for 28-FEB-26.
+2026-11-20 15:04:04,227 - INFO - CNIC 6110139161834: 28-FEB-26 submitted.
+2026-11-20 15:04:14,386 - INFO - Add Amendment Request opened.
+2026-11-20 15:04:14,387 - INFO - Processing CNIC 6110139161834 for 31-JAN-26
+2026-11-20 15:04:28,239 - INFO - Search submitted for entry 1. Data found for 31-JAN-26.
+2026-11-20 15:05:08,434 - INFO - CNIC 6110139161834: 31-JAN-26 submitted.
+2026-11-20 15:05:19,037 - INFO - Add Amendment Request opened.
+2026-11-20 15:05:19,038 - INFO - Processing CNIC 6110139161834 for 31-DEC-25
+2026-11-20 15:05:33,254 - INFO - Search submitted for entry 1. Data found for 31-DEC-25.
+2026-11-20 15:06:15,624 - INFO - CNIC 6110139161834: 31-DEC-25 submitted.
+2026-11-20 15:07:06,292 - INFO - Add Amendment Request opened.
+2026-11-20 15:07:06,293 - INFO - Processing CNIC 6110139161834 for 30-NOV-25
+2026-11-20 15:07:19,605 - INFO - Search submitted for entry 1. Data found for 30-NOV-25.
+2026-11-20 15:07:55,635 - INFO - CNIC 6110139161834: 30-NOV-25 submitted.
+2026-11-20 15:08:05,496 - INFO - Add Amendment Request opened.
+2026-11-20 15:08:05,497 - INFO - Processing CNIC 6110139161834 for 31-OCT-25
+2026-11-20 15:08:20,290 - INFO - Search submitted for entry 1. Data found for 31-OCT-25.
+2026-11-20 15:11:07,054 - INFO - CNIC 6110139161834: 31-OCT-25 submitted.
+2026-11-20 15:11:17,979 - INFO - Add Amendment Request opened.
+2026-11-20 15:11:17,986 - INFO - Processing CNIC 6110139161834 for 30-SEP-25
+2026-11-20 15:11:31,216 - INFO - Search submitted for entry 1. Data found for 30-SEP-25.
+2026-11-20 15:12:52,904 - INFO - CNIC 6110139161834: 30-SEP-25 submitted.
+2026-11-20 15:13:09,539 - INFO - Add Amendment Request opened.
+2026-11-20 15:13:09,540 - INFO - Processing CNIC 6110139161834 for 31-AUG-25
+2026-11-20 15:13:21,937 - INFO - Search submitted for entry 1. Data found for 31-AUG-25.
+2026-11-20 15:14:03,694 - INFO - CNIC 6110139161834: 31-AUG-25 submitted.
+2026-11-20 15:14:13,940 - INFO - Add Amendment Request opened.
+2026-11-20 15:14:13,941 - INFO - Processing CNIC 6110139161834 for 31-JUL-25
+2026-11-20 15:14:24,907 - INFO - Search submitted for entry 1. Data found for 31-JUL-25.
+2026-11-20 15:15:01,647 - INFO - CNIC 6110139161834: 31-JUL-25 submitted.
+2026-11-20 15:15:15,962 - INFO - Add Amendment Request opened.
+2026-11-20 15:15:15,965 - INFO - Processing CNIC 6110139161834 for 30-JUN-25
+2026-11-20 15:15:27,747 - INFO - Search submitted for entry 1. Data found for 30-JUN-25.
+2026-11-20 15:16:05,792 - INFO - CNIC 6110139161834: 30-JUN-25 submitted.
+2026-11-20 15:16:16,314 - INFO - Add Amendment Request opened.
+2026-11-20 15:16:16,314 - INFO - Processing CNIC 6110139161834 for 31-MAY-25
+2026-11-20 15:16:26,340 - INFO - Search submitted for entry 1. Data found for 31-MAY-25.
+2026-11-20 15:16:56,590 - INFO - CNIC 6110139161834: 31-MAY-25 submitted.
+2026-11-20 15:16:56,593 - INFO - CNIC 6110139161834 finished. Months submitted: ['31-AUG-26', '31-JUL-26', '30-JUN-26', '31-MAY-26', '30-APR-26', '31-MAR-26', '28-FEB-26', '31-JAN-26', '31-DEC-25', '30-NOV-25', '31-OCT-25', '30-SEP-25', '31-AUG-25', '31-JUL-25', '30-JUN-25', '31-MAY-25']
+2026-11-20 15:16:56,617 - INFO - Processing CNIC 2/2: 7110180821955
+2026-11-20 15:17:06,517 - INFO - Add Amendment Request opened.
+2026-11-20 15:17:06,517 - INFO - Processing CNIC 7110180821955 for 31-OCT-26
+2026-11-20 15:17:28,044 - INFO - Search submitted for entry 2. Data found for 31-OCT-26.
+2026-11-20 15:17:59,281 - INFO - CNIC 7110180821955: 31-OCT-26 submitted.
+2026-11-20 15:18:15,712 - INFO - Add Amendment Request opened.
+2026-11-20 15:18:15,713 - INFO - Processing CNIC 7110180821955 for 30-SEP-26
+2026-11-20 15:18:44,618 - INFO - Search submitted for entry 2. Data found for 30-SEP-26.
+2026-11-20 15:19:23,006 - INFO - CNIC 7110180821955: 30-SEP-26 submitted.
+2026-11-20 15:19:33,820 - INFO - Add Amendment Request opened.
+2026-11-20 15:19:33,821 - INFO - Processing CNIC 7110180821955 for 31-AUG-26
+2026-11-20 15:20:44,535 - INFO - Search submitted for entry 2. Data found for 31-AUG-26.
+2026-11-20 15:21:24,073 - INFO - CNIC 7110180821955: 31-AUG-26 submitted.
+2026-11-20 15:21:35,289 - INFO - Add Amendment Request opened.
+2026-11-20 15:21:35,290 - INFO - Processing CNIC 7110180821955 for 31-JUL-26
+2026-11-20 15:21:59,334 - INFO - Search submitted for entry 2. Data found for 31-JUL-26.
+2026-11-20 15:22:32,319 - INFO - CNIC 7110180821955: 31-JUL-26 submitted.
+2026-11-20 15:22:49,214 - INFO - Add Amendment Request opened.
+2026-11-20 15:22:49,216 - INFO - Processing CNIC 7110180821955 for 30-JUN-26
+2026-11-20 15:23:08,444 - INFO - Search submitted for entry 2. Data found for 30-JUN-26.
+2026-11-20 15:23:38,433 - INFO - CNIC 7110180821955: 30-JUN-26 submitted.
+2026-11-20 15:25:57,070 - INFO - Add Amendment Request opened.
+2026-11-20 15:25:57,071 - INFO - Processing CNIC 7110180821955 for 31-MAY-26
+2026-11-20 15:26:10,254 - INFO - Search submitted for entry 2. Data found for 31-MAY-26.
+2026-11-20 15:26:47,756 - INFO - CNIC 7110180821955: 31-MAY-26 submitted.
+2026-11-20 15:26:57,927 - INFO - Add Amendment Request opened.
+2026-11-20 15:26:57,927 - INFO - Processing CNIC 7110180821955 for 30-APR-26
+2026-11-20 15:27:09,371 - INFO - Search submitted for entry 2. Data found for 30-APR-26.
+2026-11-20 15:27:40,293 - INFO - CNIC 7110180821955: 30-APR-26 submitted.
+2026-11-20 15:27:57,672 - INFO - Add Amendment Request opened.
+2026-11-20 15:27:57,673 - INFO - Processing CNIC 7110180821955 for 31-MAR-26
+2026-11-20 15:28:13,202 - INFO - Search submitted for entry 2. Data found for 31-MAR-26.
+2026-11-20 15:28:43,921 - INFO - CNIC 7110180821955: 31-MAR-26 submitted.
+2026-11-20 15:28:56,228 - INFO - Add Amendment Request opened.
+2026-11-20 15:28:56,232 - INFO - Processing CNIC 7110180821955 for 28-FEB-26
+2026-11-20 15:29:10,232 - INFO - Search submitted for entry 2. Data found for 28-FEB-26.
+2026-11-20 15:29:45,970 - INFO - CNIC 7110180821955: 28-FEB-26 submitted.
+2026-11-20 15:30:00,180 - INFO - Add Amendment Request opened.
+2026-11-20 15:30:00,181 - INFO - Processing CNIC 7110180821955 for 31-JAN-26
+2026-11-20 15:30:13,409 - INFO - Search submitted for entry 2. Data found for 31-JAN-26.
+2026-11-20 15:30:46,199 - INFO - CNIC 7110180821955: 31-JAN-26 submitted.
+2026-11-20 15:30:59,560 - INFO - Add Amendment Request opened.
+2026-11-20 15:30:59,561 - INFO - Processing CNIC 7110180821955 for 31-DEC-25
+2026-11-20 15:31:11,182 - INFO - Search submitted for entry 2. Data found for 31-DEC-25.
+2026-11-20 15:31:48,413 - INFO - CNIC 7110180821955: 31-DEC-25 submitted.
+2026-11-20 15:31:59,566 - INFO - Add Amendment Request opened.
+2026-11-20 15:31:59,568 - INFO - Processing CNIC 7110180821955 for 30-NOV-25
+2026-11-20 15:32:12,448 - INFO - Search submitted for entry 2. Data found for 30-NOV-25.
+2026-11-20 15:32:41,985 - INFO - CNIC 7110180821955: 30-NOV-25 submitted.
+2026-11-20 15:32:53,708 - INFO - Add Amendment Request opened.
+2026-11-20 15:32:53,716 - INFO - Processing CNIC 7110180821955 for 31-OCT-25
+2026-11-20 15:33:08,648 - INFO - Search submitted for entry 2. Data found for 31-OCT-25.
+2026-11-20 15:33:57,808 - INFO - CNIC 7110180821955: 31-OCT-25 submitted.
+2026-11-20 15:34:11,782 - INFO - Add Amendment Request opened.
+2026-11-20 15:34:11,785 - INFO - Processing CNIC 7110180821955 for 30-SEP-25
+2026-11-20 15:34:27,049 - INFO - Search submitted for entry 2. Data found for 30-SEP-25.
+2026-11-20 15:35:17,857 - INFO - CNIC 7110180821955: 30-SEP-25 submitted.
+2026-11-20 15:35:33,247 - INFO - Add Amendment Request opened.
+2026-11-20 15:35:33,248 - INFO - Processing CNIC 7110180821955 for 31-AUG-25
+2026-11-20 15:35:45,596 - INFO - Search submitted for entry 2. Data found for 31-AUG-25.
+2026-11-20 15:36:22,271 - INFO - CNIC 7110180821955: 31-AUG-25 submitted.
+2026-11-20 15:36:33,546 - INFO - Add Amendment Request opened.
+2026-11-20 15:36:33,548 - INFO - Processing CNIC 7110180821955 for 31-JUL-25
+2026-11-20 15:36:45,331 - INFO - Search submitted for entry 2. Data found for 31-JUL-25.
+2026-11-20 15:37:15,696 - INFO - CNIC 7110180821955: 31-JUL-25 submitted.
+2026-11-20 15:37:27,031 - INFO - Add Amendment Request opened.
+2026-11-20 15:37:27,035 - INFO - Processing CNIC 7110180821955 for 30-JUN-25
+2026-11-20 15:37:39,169 - INFO - Search submitted for entry 2. Data found for 30-JUN-25.
+2026-11-20 15:38:12,153 - INFO - CNIC 7110180821955: 30-JUN-25 submitted.
+2026-11-20 15:38:25,636 - INFO - Add Amendment Request opened.
+2026-11-20 15:38:25,637 - INFO - Processing CNIC 7110180821955 for 31-MAY-25
+2026-11-20 15:38:39,473 - INFO - Search submitted for entry 2. Data found for 31-MAY-25.
+2026-11-20 15:39:19,749 - INFO - CNIC 7110180821955: 31-MAY-25 submitted.
+2026-11-20 15:39:19,750 - INFO - CNIC 7110180821955 finished. Months submitted: ['31-OCT-26', '30-SEP-26', '31-AUG-26', '31-JUL-26', '30-JUN-26', '31-MAY-26', '30-APR-26', '31-MAR-26', '28-FEB-26', '31-JAN-26', '31-DEC-25', '30-NOV-25', '31-OCT-25', '30-SEP-25', '31-AUG-25', '31-JUL-25', '30-JUN-25', '31-MAY-25']
+2026-11-20 15:39:19,750 - INFO - CNIC row processing finished: 2 succeeded, 0 failed, 0 not attempted.
+2026-11-20 15:39:19,750 - INFO - Main function completed successfully.
+2026-11-20 15:39:19,751 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-23 12:14:41,099 - INFO - EDAP automation started.
+2026-11-23 12:14:41,100 - INFO - Main function started.
+2026-11-23 12:14:41,148 - INFO - Total CNIC records loaded: 2
+2026-11-23 12:14:48,717 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-23 12:15:40,783 - INFO - EDAP automation started.
+2026-11-23 12:15:40,784 - INFO - Main function started.
+2026-11-23 12:15:40,807 - INFO - Total CNIC records loaded: 1
+2026-11-23 12:16:08,681 - INFO - Chrome browser launched successfully.
+2026-11-23 12:16:08,684 - INFO - Opening SBP portal.
+2026-11-23 12:16:35,963 - INFO - SBP login wait completed.
+2026-11-23 12:16:35,963 - INFO - Opening EDAP portal in a second tab.
+2026-11-23 12:16:39,478 - INFO - EDAP login confirmed.
+2026-11-23 12:16:39,479 - INFO - Starting CNIC processing. Total records: 1
+2026-11-23 12:16:39,482 - INFO - Processing CNIC 1/1: 31301-6951355-9
+2026-11-23 12:17:25,051 - INFO - Add Amendment Request opened.
+2026-11-23 12:17:25,051 - INFO - Processing CNIC 31301-6951355-9 for 31-OCT-26
+2026-11-23 12:17:45,490 - INFO - Search submitted for entry 1. Data found for 31-OCT-26.
+2026-11-23 12:17:58,238 - INFO - Total LD loan accounts identified: 0
+2026-11-23 12:17:58,238 - WARNING - No LD loan accounts found. No amendment was submitted.
+2026-11-23 12:17:58,239 - WARNING - CNIC 31301-6951355-9: 31-OCT-26 has no LD account. Nothing submitted, moving to previous month.
+2026-11-23 12:18:12,676 - INFO - Add Amendment Request opened.
+2026-11-23 12:18:12,679 - INFO - Processing CNIC 31301-6951355-9 for 30-SEP-26
+2026-11-23 12:18:33,604 - INFO - Search submitted for entry 1. Data found for 30-SEP-26.
+2026-11-23 12:18:47,081 - INFO - Total LD loan accounts identified: 0
+2026-11-23 12:18:47,081 - WARNING - No LD loan accounts found. No amendment was submitted.
+2026-11-23 12:18:47,082 - WARNING - CNIC 31301-6951355-9: 30-SEP-26 has no LD account. Nothing submitted, moving to previous month.
+2026-11-23 12:18:58,700 - INFO - Add Amendment Request opened.
+2026-11-23 12:18:58,702 - INFO - Processing CNIC 31301-6951355-9 for 31-AUG-26
+2026-11-23 12:19:19,700 - INFO - Search submitted for entry 1. Data found for 31-AUG-26.
+2026-11-23 12:19:32,709 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:19:32,714 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:19:50,758 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:19:50,758 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:20:16,504 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:20:21,608 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:20:21,609 - INFO - CNIC 31301-6951355-9: 31-AUG-26 submitted.
+2026-11-23 12:20:36,276 - INFO - Add Amendment Request opened.
+2026-11-23 12:20:36,277 - INFO - Processing CNIC 31301-6951355-9 for 31-JUL-26
+2026-11-23 12:21:01,407 - INFO - Search submitted for entry 1. Data found for 31-JUL-26.
+2026-11-23 12:21:16,123 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:21:16,123 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:21:33,655 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:21:33,655 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:21:51,503 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:22:04,578 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:22:04,579 - INFO - CNIC 31301-6951355-9: 31-JUL-26 submitted.
+2026-11-23 12:22:18,454 - INFO - Add Amendment Request opened.
+2026-11-23 12:22:18,455 - INFO - Processing CNIC 31301-6951355-9 for 30-JUN-26
+2026-11-23 12:23:40,713 - INFO - Search submitted for entry 1. Data found for 30-JUN-26.
+2026-11-23 12:23:55,105 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:23:55,106 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:24:13,396 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:24:13,396 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:24:31,592 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:24:45,133 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:24:45,135 - INFO - CNIC 31301-6951355-9: 30-JUN-26 submitted.
+2026-11-23 12:24:57,627 - INFO - Add Amendment Request opened.
+2026-11-23 12:24:57,628 - INFO - Processing CNIC 31301-6951355-9 for 31-MAY-26
+2026-11-23 12:25:12,406 - INFO - Search submitted for entry 1. Data found for 31-MAY-26.
+2026-11-23 12:25:26,358 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:25:26,358 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:25:44,991 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:25:44,992 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:26:02,794 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:26:16,695 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:26:16,696 - INFO - CNIC 31301-6951355-9: 31-MAY-26 submitted.
+2026-11-23 12:26:30,672 - INFO - Add Amendment Request opened.
+2026-11-23 12:26:30,673 - INFO - Processing CNIC 31301-6951355-9 for 30-APR-26
+2026-11-23 12:26:45,001 - INFO - Search submitted for entry 1. Data found for 30-APR-26.
+2026-11-23 12:26:57,293 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:26:57,296 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:27:15,254 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:27:15,254 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:27:33,548 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:27:44,524 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:27:44,526 - INFO - CNIC 31301-6951355-9: 30-APR-26 submitted.
+2026-11-23 12:27:55,260 - INFO - Add Amendment Request opened.
+2026-11-23 12:27:55,262 - INFO - Processing CNIC 31301-6951355-9 for 31-MAR-26
+2026-11-23 12:28:07,733 - INFO - Search submitted for entry 1. Data found for 31-MAR-26.
+2026-11-23 12:28:20,458 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:28:20,459 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:28:37,241 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:28:37,241 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:28:55,326 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:29:00,546 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:29:00,548 - INFO - CNIC 31301-6951355-9: 31-MAR-26 submitted.
+2026-11-23 12:29:13,847 - INFO - Add Amendment Request opened.
+2026-11-23 12:29:13,852 - INFO - Processing CNIC 31301-6951355-9 for 28-FEB-26
+2026-11-23 12:29:27,113 - INFO - Search submitted for entry 1. Data found for 28-FEB-26.
+2026-11-23 12:29:39,929 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:29:39,929 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:29:56,504 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:29:56,504 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:30:17,177 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:30:22,313 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:30:22,314 - INFO - CNIC 31301-6951355-9: 28-FEB-26 submitted.
+2026-11-23 12:30:38,081 - INFO - Add Amendment Request opened.
+2026-11-23 12:30:38,082 - INFO - Processing CNIC 31301-6951355-9 for 31-JAN-26
+2026-11-23 12:30:50,088 - INFO - Search submitted for entry 1. Data found for 31-JAN-26.
+2026-11-23 12:31:02,947 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:31:02,947 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:31:21,833 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:31:21,834 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:31:38,261 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:31:49,331 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:31:49,333 - INFO - CNIC 31301-6951355-9: 31-JAN-26 submitted.
+2026-11-23 12:31:57,723 - INFO - Add Amendment Request opened.
+2026-11-23 12:31:57,724 - INFO - Processing CNIC 31301-6951355-9 for 31-DEC-25
+2026-11-23 12:32:12,767 - INFO - Search submitted for entry 1. Data found for 31-DEC-25.
+2026-11-23 12:32:26,605 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:32:26,606 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:32:45,208 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:32:45,208 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:33:06,546 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:33:11,862 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:33:11,863 - INFO - CNIC 31301-6951355-9: 31-DEC-25 submitted.
+2026-11-23 12:33:27,986 - INFO - Add Amendment Request opened.
+2026-11-23 12:33:27,988 - INFO - Processing CNIC 31301-6951355-9 for 30-NOV-25
+2026-11-23 12:33:42,685 - INFO - Search submitted for entry 1. Data found for 30-NOV-25.
+2026-11-23 12:33:56,002 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:33:56,002 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:34:13,933 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:34:13,933 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:34:33,187 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:34:38,342 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:34:38,344 - INFO - CNIC 31301-6951355-9: 30-NOV-25 submitted.
+2026-11-23 12:34:51,862 - INFO - Add Amendment Request opened.
+2026-11-23 12:34:51,863 - INFO - Processing CNIC 31301-6951355-9 for 31-OCT-25
+2026-11-23 12:35:10,691 - INFO - Search submitted for entry 1. Data found for 31-OCT-25.
+2026-11-23 12:35:23,833 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:35:23,833 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:35:40,624 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:35:40,624 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:35:58,657 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:36:10,369 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:36:10,370 - INFO - CNIC 31301-6951355-9: 31-OCT-25 submitted.
+2026-11-23 12:36:20,067 - INFO - Add Amendment Request opened.
+2026-11-23 12:36:20,068 - INFO - Processing CNIC 31301-6951355-9 for 30-SEP-25
+2026-11-23 12:36:32,035 - INFO - Search submitted for entry 1. Data found for 30-SEP-25.
+2026-11-23 12:36:45,664 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:36:45,665 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:37:02,250 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:37:02,250 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:37:19,553 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:37:30,740 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:37:30,742 - INFO - CNIC 31301-6951355-9: 30-SEP-25 submitted.
+2026-11-23 12:37:43,099 - INFO - Add Amendment Request opened.
+2026-11-23 12:37:43,100 - INFO - Processing CNIC 31301-6951355-9 for 31-AUG-25
+2026-11-23 12:37:56,681 - INFO - Search submitted for entry 1. Data found for 31-AUG-25.
+2026-11-23 12:38:09,649 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:38:09,649 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:38:26,564 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:38:26,564 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:38:44,190 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:38:56,173 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:38:56,173 - INFO - CNIC 31301-6951355-9: 31-AUG-25 submitted.
+2026-11-23 12:39:08,192 - INFO - Add Amendment Request opened.
+2026-11-23 12:39:08,192 - INFO - Processing CNIC 31301-6951355-9 for 31-JUL-25
+2026-11-23 12:39:20,245 - INFO - Search submitted for entry 1. Data found for 31-JUL-25.
+2026-11-23 12:39:33,352 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:39:33,353 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:39:50,288 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:39:50,288 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:40:08,962 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:40:20,658 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:40:20,659 - INFO - CNIC 31301-6951355-9: 31-JUL-25 submitted.
+2026-11-23 12:40:32,307 - INFO - Add Amendment Request opened.
+2026-11-23 12:40:32,308 - INFO - Processing CNIC 31301-6951355-9 for 30-JUN-25
+2026-11-23 12:40:44,212 - INFO - Search submitted for entry 1. Data found for 30-JUN-25.
+2026-11-23 12:40:57,193 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:40:57,194 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:41:13,966 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:41:13,966 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:42:01,632 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:42:13,348 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:42:13,349 - INFO - CNIC 31301-6951355-9: 30-JUN-25 submitted.
+2026-11-23 12:42:28,966 - INFO - Add Amendment Request opened.
+2026-11-23 12:42:28,966 - INFO - Processing CNIC 31301-6951355-9 for 31-MAY-25
+2026-11-23 12:42:41,271 - INFO - Search submitted for entry 1. Data found for 31-MAY-25.
+2026-11-23 12:42:55,383 - INFO - Total LD loan accounts identified: 2
+2026-11-23 12:42:55,383 - INFO - Processing LD account 1/2: LD4046920641732254874103
+2026-11-23 12:43:13,487 - INFO - Apply Changes completed for LD account: LD4046920641732254874103
+2026-11-23 12:43:13,488 - INFO - Processing LD account 2/2: LD9841794771593857703646
+2026-11-23 12:43:30,212 - INFO - Apply Changes completed for LD account: LD9841794771593857703646
+2026-11-23 12:43:41,722 - INFO - All 2 LD loan accounts processed. Final submission completed.
+2026-11-23 12:43:41,723 - INFO - CNIC 31301-6951355-9: 31-MAY-25 submitted.
+2026-11-23 12:43:41,723 - INFO - CNIC 31301-6951355-9 finished. Submitted: ['31-AUG-26', '31-JUL-26', '30-JUN-26', '31-MAY-26', '30-APR-26', '31-MAR-26', '28-FEB-26', '31-JAN-26', '31-DEC-25', '30-NOV-25', '31-OCT-25', '30-SEP-25', '31-AUG-25', '31-JUL-25', '30-JUN-25', '31-MAY-25'] | No LD account (skipped): ['31-OCT-26', '30-SEP-26']
+2026-11-23 12:43:41,723 - INFO - CNIC row processing finished: 1 succeeded, 0 failed, 0 not attempted.
+2026-11-23 12:43:41,723 - INFO - Main function completed successfully.
+2026-11-23 12:43:41,725 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-23 12:58:56,140 - INFO - EDAP automation started.
+2026-11-23 12:58:56,140 - INFO - Main function started.
+2026-11-23 12:58:56,157 - INFO - Total CNIC records loaded: 5
+2026-11-23 12:59:14,994 - INFO - Chrome browser launched successfully.
+2026-11-23 12:59:14,995 - INFO - Opening SBP portal.
+2026-11-23 12:59:36,194 - INFO - SBP login wait completed.
+2026-11-23 12:59:36,194 - INFO - Opening EDAP portal in a second tab.
+2026-11-23 12:59:40,259 - INFO - EDAP login confirmed.
+2026-11-23 12:59:40,263 - INFO - Report file: D:\VsCode\Edap Automation\Submitted Data\23 Nov 2026\Submitted_Data_125940.xlsx
+2026-11-23 12:59:40,263 - INFO - Starting CNIC processing. Total records: 5
+2026-11-23 12:59:40,267 - INFO - Processing CNIC 1/5: 3410169207479
+2026-11-23 12:59:51,481 - INFO - Add Amendment Request opened.
+2026-11-23 12:59:51,481 - INFO - Processing CNIC 3410169207479 for 31-OCT-26
+2026-11-23 13:00:11,972 - INFO - Search submitted for entry 1. Data found for 31-OCT-26.
+2026-11-23 13:00:24,417 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:00:24,418 - INFO - Processing LD account 1/1: LD1789534492066121062746
+2026-11-23 13:00:41,819 - INFO - Apply Changes completed for LD account: LD1789534492066121062746
+2026-11-23 13:00:57,819 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:00:57,821 - INFO - CNIC 3410169207479: 31-OCT-26 submitted.
+2026-11-23 13:01:08,019 - INFO - Add Amendment Request opened.
+2026-11-23 13:01:08,020 - INFO - Processing CNIC 3410169207479 for 30-SEP-26
+2026-11-23 13:01:30,526 - INFO - Search submitted for entry 1. Data found for 30-SEP-26.
+2026-11-23 13:01:43,568 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:01:43,569 - INFO - Processing LD account 1/1: LD1789534492066121062746
+2026-11-23 13:02:01,080 - INFO - Apply Changes completed for LD account: LD1789534492066121062746
+2026-11-23 13:02:06,165 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:02:06,166 - INFO - CNIC 3410169207479: 30-SEP-26 submitted.
+2026-11-23 13:02:22,417 - INFO - Add Amendment Request opened.
+2026-11-23 13:02:22,418 - INFO - Processing CNIC 3410169207479 for 31-AUG-26
+2026-11-23 13:02:44,786 - INFO - Search submitted for entry 1. Data found for 31-AUG-26.
+2026-11-23 13:02:57,985 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:02:57,986 - INFO - Processing LD account 1/1: LD1786770590885121062746
+2026-11-23 13:03:15,968 - INFO - Apply Changes completed for LD account: LD1786770590885121062746
+2026-11-23 13:03:26,417 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:03:26,418 - INFO - CNIC 3410169207479: 31-AUG-26 submitted.
+2026-11-23 13:03:36,898 - INFO - Add Amendment Request opened.
+2026-11-23 13:03:36,899 - INFO - Processing CNIC 3410169207479 for 31-JUL-26
+2026-11-23 13:04:01,836 - INFO - Search submitted for entry 1. Data found for 31-JUL-26.
+2026-11-23 13:04:14,241 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:04:14,241 - INFO - Processing LD account 1/1: LD1784086738584121062746
+2026-11-23 13:04:34,869 - INFO - Apply Changes completed for LD account: LD1784086738584121062746
+2026-11-23 13:04:49,108 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:04:49,109 - INFO - CNIC 3410169207479: 31-JUL-26 submitted.
+2026-11-23 13:04:59,834 - INFO - Add Amendment Request opened.
+2026-11-23 13:04:59,834 - INFO - Processing CNIC 3410169207479 for 30-JUN-26
+2026-11-23 13:05:19,525 - INFO - Search submitted for entry 1. Data found for 30-JUN-26.
+2026-11-23 13:05:32,337 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:05:32,338 - INFO - Processing LD account 1/1: LD1781930470676121062746
+2026-11-23 13:05:51,306 - INFO - Apply Changes completed for LD account: LD1781930470676121062746
+2026-11-23 13:06:03,475 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:06:03,476 - INFO - CNIC 3410169207479: 30-JUN-26 submitted.
+2026-11-23 13:06:13,406 - INFO - Add Amendment Request opened.
+2026-11-23 13:06:13,406 - INFO - Processing CNIC 3410169207479 for 31-MAY-26
+2026-11-23 13:06:26,116 - INFO - CNIC 3410169207479: 'No data found' for 31-MAY-26, moving to previous month.
+2026-11-23 13:06:26,116 - INFO - Processing CNIC 3410169207479 for 30-APR-26
+2026-11-23 13:06:37,609 - INFO - CNIC 3410169207479: 'No data found' for 30-APR-26, moving to previous month.
+2026-11-23 13:06:37,609 - INFO - Processing CNIC 3410169207479 for 31-MAR-26
+2026-11-23 13:06:48,978 - INFO - Search submitted for entry 1. Data found for 31-MAR-26.
+2026-11-23 13:07:01,943 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:07:01,944 - INFO - Processing LD account 1/1: LD1774934024223121062746
+2026-11-23 13:07:20,084 - INFO - Apply Changes completed for LD account: LD1774934024223121062746
+2026-11-23 13:07:36,975 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:07:36,976 - INFO - CNIC 3410169207479: 31-MAR-26 submitted.
+2026-11-23 13:07:47,853 - INFO - Add Amendment Request opened.
+2026-11-23 13:07:47,854 - INFO - Processing CNIC 3410169207479 for 28-FEB-26
+2026-11-23 13:07:59,954 - INFO - Search submitted for entry 1. Data found for 28-FEB-26.
+2026-11-23 13:08:13,115 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:08:13,115 - INFO - Processing LD account 1/1: LD1772175055988121062746
+2026-11-23 13:08:29,929 - INFO - Apply Changes completed for LD account: LD1772175055988121062746
+2026-11-23 13:08:49,940 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:08:49,941 - INFO - CNIC 3410169207479: 28-FEB-26 submitted.
+2026-11-23 13:09:04,021 - INFO - Add Amendment Request opened.
+2026-11-23 13:09:04,022 - INFO - Processing CNIC 3410169207479 for 31-JAN-26
+2026-11-23 13:09:17,918 - INFO - CNIC 3410169207479: 'No data found' for 31-JAN-26, moving to previous month.
+2026-11-23 13:09:17,919 - INFO - Processing CNIC 3410169207479 for 31-DEC-25
+2026-11-23 13:09:30,557 - INFO - CNIC 3410169207479: 'No data found' for 31-DEC-25, moving to previous month.
+2026-11-23 13:09:30,558 - INFO - Processing CNIC 3410169207479 for 30-NOV-25
+2026-11-23 13:09:44,756 - INFO - CNIC 3410169207479: 'No data found' for 30-NOV-25, moving to previous month.
+2026-11-23 13:09:44,757 - INFO - Processing CNIC 3410169207479 for 31-OCT-25
+2026-11-23 13:09:57,824 - INFO - CNIC 3410169207479: 'No data found' for 31-OCT-25, moving to previous month.
+2026-11-23 13:09:57,825 - INFO - Processing CNIC 3410169207479 for 30-SEP-25
+2026-11-23 13:10:10,694 - INFO - CNIC 3410169207479: 'No data found' for 30-SEP-25, moving to previous month.
+2026-11-23 13:10:10,695 - INFO - Processing CNIC 3410169207479 for 31-AUG-25
+2026-11-23 13:10:22,857 - INFO - CNIC 3410169207479: 'No data found' for 31-AUG-25, moving to previous month.
+2026-11-23 13:10:22,858 - INFO - Processing CNIC 3410169207479 for 31-JUL-25
+2026-11-23 13:10:35,873 - INFO - CNIC 3410169207479: 'No data found' for 31-JUL-25, moving to previous month.
+2026-11-23 13:10:35,874 - INFO - Processing CNIC 3410169207479 for 30-JUN-25
+2026-11-23 13:10:46,971 - INFO - CNIC 3410169207479: 'No data found' for 30-JUN-25, moving to previous month.
+2026-11-23 13:10:46,972 - INFO - Processing CNIC 3410169207479 for 31-MAY-25
+2026-11-23 13:10:57,563 - INFO - CNIC 3410169207479: 'No data found' for 31-MAY-25, moving to previous month.
+2026-11-23 13:10:57,563 - INFO - CNIC 3410169207479 finished. Submitted: ['31-OCT-26', '30-SEP-26', '31-AUG-26', '31-JUL-26', '30-JUN-26', '31-MAR-26', '28-FEB-26'] | No LD account (skipped): []
+2026-11-23 13:10:57,740 - INFO - Report saved: D:\VsCode\Edap Automation\Submitted Data\23 Nov 2026\Submitted_Data_125940.xlsx
+2026-11-23 13:10:57,745 - INFO - Processing CNIC 2/5: 4440483823821
+2026-11-23 13:11:09,676 - INFO - Add Amendment Request opened.
+2026-11-23 13:11:09,676 - INFO - Processing CNIC 4440483823821 for 31-OCT-26
+2026-11-23 13:11:34,166 - INFO - Search submitted for entry 2. Data found for 31-OCT-26.
+2026-11-23 13:11:46,859 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:11:46,859 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:12:04,340 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:12:09,443 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:12:09,444 - INFO - CNIC 4440483823821: 31-OCT-26 submitted.
+2026-11-23 13:12:28,967 - INFO - Add Amendment Request opened.
+2026-11-23 13:12:28,969 - INFO - Processing CNIC 4440483823821 for 30-SEP-26
+2026-11-23 13:12:49,118 - INFO - Search submitted for entry 2. Data found for 30-SEP-26.
+2026-11-23 13:13:02,080 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:13:02,080 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:13:19,136 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:13:32,192 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:13:32,196 - INFO - CNIC 4440483823821: 30-SEP-26 submitted.
+2026-11-23 13:13:44,188 - INFO - Add Amendment Request opened.
+2026-11-23 13:13:44,189 - INFO - Processing CNIC 4440483823821 for 31-AUG-26
+2026-11-23 13:14:05,378 - INFO - Search submitted for entry 2. Data found for 31-AUG-26.
+2026-11-23 13:14:18,014 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:14:18,014 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:14:34,497 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:14:46,371 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:14:46,372 - INFO - CNIC 4440483823821: 31-AUG-26 submitted.
+2026-11-23 13:14:58,919 - INFO - Add Amendment Request opened.
+2026-11-23 13:14:58,919 - INFO - Processing CNIC 4440483823821 for 31-JUL-26
+2026-11-23 13:15:22,186 - INFO - Search submitted for entry 2. Data found for 31-JUL-26.
+2026-11-23 13:15:35,127 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:15:35,127 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:15:52,361 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:16:04,287 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:16:04,288 - INFO - CNIC 4440483823821: 31-JUL-26 submitted.
+2026-11-23 13:16:15,003 - INFO - Add Amendment Request opened.
+2026-11-23 13:16:15,004 - INFO - Processing CNIC 4440483823821 for 30-JUN-26
+2026-11-23 13:16:32,611 - INFO - Search submitted for entry 2. Data found for 30-JUN-26.
+2026-11-23 13:16:45,238 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:16:45,239 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:17:03,333 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:17:15,681 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:17:15,682 - INFO - CNIC 4440483823821: 30-JUN-26 submitted.
+2026-11-23 13:17:26,550 - INFO - Add Amendment Request opened.
+2026-11-23 13:17:26,550 - INFO - Processing CNIC 4440483823821 for 31-MAY-26
+2026-11-23 13:17:38,298 - INFO - Search submitted for entry 2. Data found for 31-MAY-26.
+2026-11-23 13:17:50,775 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:17:50,776 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:18:09,277 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:18:21,903 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:18:21,903 - INFO - CNIC 4440483823821: 31-MAY-26 submitted.
+2026-11-23 13:18:32,831 - INFO - Add Amendment Request opened.
+2026-11-23 13:18:32,831 - INFO - Processing CNIC 4440483823821 for 30-APR-26
+2026-11-23 13:18:44,577 - INFO - Search submitted for entry 2. Data found for 30-APR-26.
+2026-11-23 13:18:57,059 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:18:57,059 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:19:14,357 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:19:25,128 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:19:25,130 - INFO - CNIC 4440483823821: 30-APR-26 submitted.
+2026-11-23 13:19:37,958 - INFO - Add Amendment Request opened.
+2026-11-23 13:19:37,958 - INFO - Processing CNIC 4440483823821 for 31-MAR-26
+2026-11-23 13:19:51,316 - INFO - Search submitted for entry 2. Data found for 31-MAR-26.
+2026-11-23 13:20:04,411 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:20:04,411 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:20:21,637 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:20:26,732 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:20:26,733 - INFO - CNIC 4440483823821: 31-MAR-26 submitted.
+2026-11-23 13:20:45,656 - INFO - Add Amendment Request opened.
+2026-11-23 13:20:45,656 - INFO - Processing CNIC 4440483823821 for 28-FEB-26
+2026-11-23 13:20:57,299 - INFO - Search submitted for entry 2. Data found for 28-FEB-26.
+2026-11-23 13:21:09,430 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:21:09,430 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:21:34,749 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:21:46,215 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:21:46,216 - INFO - CNIC 4440483823821: 28-FEB-26 submitted.
+2026-11-23 13:21:57,272 - INFO - Add Amendment Request opened.
+2026-11-23 13:21:57,273 - INFO - Processing CNIC 4440483823821 for 31-JAN-26
+2026-11-23 13:22:10,924 - INFO - Search submitted for entry 2. Data found for 31-JAN-26.
+2026-11-23 13:22:23,567 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:22:23,568 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:22:40,506 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:22:52,450 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:22:52,451 - INFO - CNIC 4440483823821: 31-JAN-26 submitted.
+2026-11-23 13:23:04,894 - INFO - Add Amendment Request opened.
+2026-11-23 13:23:04,894 - INFO - Processing CNIC 4440483823821 for 31-DEC-25
+2026-11-23 13:23:17,707 - INFO - Search submitted for entry 2. Data found for 31-DEC-25.
+2026-11-23 13:23:30,342 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:23:30,342 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:23:49,398 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:23:54,496 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:23:54,496 - INFO - CNIC 4440483823821: 31-DEC-25 submitted.
+2026-11-23 13:24:05,890 - INFO - Add Amendment Request opened.
+2026-11-23 13:24:05,891 - INFO - Processing CNIC 4440483823821 for 30-NOV-25
+2026-11-23 13:24:20,159 - INFO - Search submitted for entry 2. Data found for 30-NOV-25.
+2026-11-23 13:24:33,373 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:24:33,374 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:24:50,503 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:24:55,588 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:24:55,589 - INFO - CNIC 4440483823821: 30-NOV-25 submitted.
+2026-11-23 13:25:07,976 - INFO - Add Amendment Request opened.
+2026-11-23 13:25:07,976 - INFO - Processing CNIC 4440483823821 for 31-OCT-25
+2026-11-23 13:25:22,262 - INFO - Search submitted for entry 2. Data found for 31-OCT-25.
+2026-11-23 13:25:35,956 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:25:35,956 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:25:53,820 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:25:58,916 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:25:58,916 - INFO - CNIC 4440483823821: 31-OCT-25 submitted.
+2026-11-23 13:26:12,051 - INFO - Add Amendment Request opened.
+2026-11-23 13:26:12,052 - INFO - Processing CNIC 4440483823821 for 30-SEP-25
+2026-11-23 13:26:24,266 - INFO - Search submitted for entry 2. Data found for 30-SEP-25.
+2026-11-23 13:26:36,616 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:26:36,617 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:26:56,511 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:27:08,539 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:27:08,540 - INFO - CNIC 4440483823821: 30-SEP-25 submitted.
+2026-11-23 13:27:19,326 - INFO - Add Amendment Request opened.
+2026-11-23 13:27:19,327 - INFO - Processing CNIC 4440483823821 for 31-AUG-25
+2026-11-23 13:27:30,731 - INFO - Search submitted for entry 2. Data found for 31-AUG-25.
+2026-11-23 13:27:44,020 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:27:44,021 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:28:00,879 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:28:06,053 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:28:06,054 - INFO - CNIC 4440483823821: 31-AUG-25 submitted.
+2026-11-23 13:28:21,767 - INFO - Add Amendment Request opened.
+2026-11-23 13:28:21,767 - INFO - Processing CNIC 4440483823821 for 31-JUL-25
+2026-11-23 13:28:33,485 - INFO - Search submitted for entry 2. Data found for 31-JUL-25.
+2026-11-23 13:28:45,811 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:28:45,812 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:29:03,095 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:29:14,735 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:29:14,736 - INFO - CNIC 4440483823821: 31-JUL-25 submitted.
+2026-11-23 13:29:25,733 - INFO - Add Amendment Request opened.
+2026-11-23 13:29:25,733 - INFO - Processing CNIC 4440483823821 for 30-JUN-25
+2026-11-23 13:29:35,748 - INFO - Search submitted for entry 2. Data found for 30-JUN-25.
+2026-11-23 13:29:47,716 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:29:47,717 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:30:04,921 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:30:16,287 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:30:16,288 - INFO - CNIC 4440483823821: 30-JUN-25 submitted.
+2026-11-23 13:30:32,305 - INFO - Add Amendment Request opened.
+2026-11-23 13:30:32,305 - INFO - Processing CNIC 4440483823821 for 31-MAY-25
+2026-11-23 13:30:43,846 - INFO - Search submitted for entry 2. Data found for 31-MAY-25.
+2026-11-23 13:30:57,748 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:30:57,748 - INFO - Processing LD account 1/1: LD3322919901693106474015
+2026-11-23 13:31:15,116 - INFO - Apply Changes completed for LD account: LD3322919901693106474015
+2026-11-23 13:31:26,393 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:31:26,394 - INFO - CNIC 4440483823821: 31-MAY-25 submitted.
+2026-11-23 13:31:26,396 - INFO - CNIC 4440483823821 finished. Submitted: ['31-OCT-26', '30-SEP-26', '31-AUG-26', '31-JUL-26', '30-JUN-26', '31-MAY-26', '30-APR-26', '31-MAR-26', '28-FEB-26', '31-JAN-26', '31-DEC-25', '30-NOV-25', '31-OCT-25', '30-SEP-25', '31-AUG-25', '31-JUL-25', '30-JUN-25', '31-MAY-25'] | No LD account (skipped): []
+2026-11-23 13:31:26,534 - INFO - Report saved: D:\VsCode\Edap Automation\Submitted Data\23 Nov 2026\Submitted_Data_125940.xlsx
+2026-11-23 13:31:26,544 - INFO - Processing CNIC 3/5: 3520228718495
+2026-11-23 13:31:37,291 - INFO - Add Amendment Request opened.
+2026-11-23 13:31:37,292 - INFO - Processing CNIC 3520228718495 for 31-OCT-26
+2026-11-23 13:31:59,395 - INFO - CNIC 3520228718495: 'No data found' for 31-OCT-26, moving to previous month.
+2026-11-23 13:31:59,395 - INFO - Processing CNIC 3520228718495 for 30-SEP-26
+2026-11-23 13:32:23,137 - INFO - CNIC 3520228718495: 'No data found' for 30-SEP-26, moving to previous month.
+2026-11-23 13:32:23,137 - INFO - Processing CNIC 3520228718495 for 31-AUG-26
+2026-11-23 13:32:45,696 - INFO - CNIC 3520228718495: 'No data found' for 31-AUG-26, moving to previous month.
+2026-11-23 13:32:45,697 - INFO - Processing CNIC 3520228718495 for 31-JUL-26
+2026-11-23 13:33:07,425 - INFO - CNIC 3520228718495: 'No data found' for 31-JUL-26, moving to previous month.
+2026-11-23 13:33:07,426 - INFO - Processing CNIC 3520228718495 for 30-JUN-26
+2026-11-23 13:33:25,759 - INFO - CNIC 3520228718495: 'No data found' for 30-JUN-26, moving to previous month.
+2026-11-23 13:33:25,760 - INFO - Processing CNIC 3520228718495 for 31-MAY-26
+2026-11-23 13:33:37,317 - INFO - CNIC 3520228718495: 'No data found' for 31-MAY-26, moving to previous month.
+2026-11-23 13:33:37,318 - INFO - Processing CNIC 3520228718495 for 30-APR-26
+2026-11-23 13:33:49,576 - INFO - CNIC 3520228718495: 'No data found' for 30-APR-26, moving to previous month.
+2026-11-23 13:33:49,576 - INFO - Processing CNIC 3520228718495 for 31-MAR-26
+2026-11-23 13:34:01,312 - INFO - CNIC 3520228718495: 'No data found' for 31-MAR-26, moving to previous month.
+2026-11-23 13:34:01,312 - INFO - Processing CNIC 3520228718495 for 28-FEB-26
+2026-11-23 13:34:13,232 - INFO - CNIC 3520228718495: 'No data found' for 28-FEB-26, moving to previous month.
+2026-11-23 13:34:13,232 - INFO - Processing CNIC 3520228718495 for 31-JAN-26
+2026-11-23 13:34:27,472 - INFO - CNIC 3520228718495: 'No data found' for 31-JAN-26, moving to previous month.
+2026-11-23 13:34:27,473 - INFO - Processing CNIC 3520228718495 for 31-DEC-25
+2026-11-23 13:34:40,084 - INFO - CNIC 3520228718495: 'No data found' for 31-DEC-25, moving to previous month.
+2026-11-23 13:34:40,085 - INFO - Processing CNIC 3520228718495 for 30-NOV-25
+2026-11-23 13:34:53,099 - INFO - CNIC 3520228718495: 'No data found' for 30-NOV-25, moving to previous month.
+2026-11-23 13:34:53,100 - INFO - Processing CNIC 3520228718495 for 31-OCT-25
+2026-11-23 13:35:08,201 - INFO - CNIC 3520228718495: 'No data found' for 31-OCT-25, moving to previous month.
+2026-11-23 13:35:08,202 - INFO - Processing CNIC 3520228718495 for 30-SEP-25
+2026-11-23 13:35:20,318 - INFO - CNIC 3520228718495: 'No data found' for 30-SEP-25, moving to previous month.
+2026-11-23 13:35:20,318 - INFO - Processing CNIC 3520228718495 for 31-AUG-25
+2026-11-23 13:35:33,263 - INFO - CNIC 3520228718495: 'No data found' for 31-AUG-25, moving to previous month.
+2026-11-23 13:35:33,264 - INFO - Processing CNIC 3520228718495 for 31-JUL-25
+2026-11-23 13:35:45,177 - INFO - CNIC 3520228718495: 'No data found' for 31-JUL-25, moving to previous month.
+2026-11-23 13:35:45,178 - INFO - Processing CNIC 3520228718495 for 30-JUN-25
+2026-11-23 13:35:56,847 - INFO - CNIC 3520228718495: 'No data found' for 30-JUN-25, moving to previous month.
+2026-11-23 13:35:56,848 - INFO - Processing CNIC 3520228718495 for 31-MAY-25
+2026-11-23 13:36:07,109 - INFO - CNIC 3520228718495: 'No data found' for 31-MAY-25, moving to previous month.
+2026-11-23 13:36:07,110 - INFO - CNIC 3520228718495 finished. Submitted: [] | No LD account (skipped): []
+2026-11-23 13:36:07,110 - WARNING - CNIC 3520228718495 finished. No data found in any month.
+2026-11-23 13:36:07,216 - INFO - Report saved: D:\VsCode\Edap Automation\Submitted Data\23 Nov 2026\Submitted_Data_125940.xlsx
+2026-11-23 13:36:07,223 - INFO - Processing CNIC 4/5: 3520220794658
+2026-11-23 13:36:18,611 - INFO - Add Amendment Request opened.
+2026-11-23 13:36:18,614 - INFO - Processing CNIC 3520220794658 for 31-OCT-26
+2026-11-23 13:36:40,001 - INFO - CNIC 3520220794658: 'No data found' for 31-OCT-26, moving to previous month.
+2026-11-23 13:36:40,001 - INFO - Processing CNIC 3520220794658 for 30-SEP-26
+2026-11-23 13:37:01,953 - INFO - CNIC 3520220794658: 'No data found' for 30-SEP-26, moving to previous month.
+2026-11-23 13:37:01,954 - INFO - Processing CNIC 3520220794658 for 31-AUG-26
+2026-11-23 13:37:21,599 - INFO - CNIC 3520220794658: 'No data found' for 31-AUG-26, moving to previous month.
+2026-11-23 13:37:21,600 - INFO - Processing CNIC 3520220794658 for 31-JUL-26
+2026-11-23 13:37:45,622 - INFO - CNIC 3520220794658: 'No data found' for 31-JUL-26, moving to previous month.
+2026-11-23 13:37:45,623 - INFO - Processing CNIC 3520220794658 for 30-JUN-26
+2026-11-23 13:38:03,064 - INFO - Search submitted for entry 4. Data found for 30-JUN-26.
+2026-11-23 13:38:16,352 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:38:16,353 - INFO - Processing LD account 1/1: LD6935666741720116479476
+2026-11-23 13:38:34,532 - INFO - Apply Changes completed for LD account: LD6935666741720116479476
+2026-11-23 13:38:50,910 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:38:50,911 - INFO - CNIC 3520220794658: 30-JUN-26 submitted.
+2026-11-23 13:39:01,480 - INFO - Add Amendment Request opened.
+2026-11-23 13:39:01,480 - INFO - Processing CNIC 3520220794658 for 31-MAY-26
+2026-11-23 13:39:14,468 - INFO - Search submitted for entry 4. Data found for 31-MAY-26.
+2026-11-23 13:39:27,814 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:39:27,814 - INFO - Processing LD account 1/1: LD6935666741720116479476
+2026-11-23 13:39:44,159 - INFO - Apply Changes completed for LD account: LD6935666741720116479476
+2026-11-23 13:39:55,187 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:39:55,188 - INFO - CNIC 3520220794658: 31-MAY-26 submitted.
+2026-11-23 13:40:05,801 - INFO - Add Amendment Request opened.
+2026-11-23 13:40:05,802 - INFO - Processing CNIC 3520220794658 for 30-APR-26
+2026-11-23 13:40:17,856 - INFO - Search submitted for entry 4. Data found for 30-APR-26.
+2026-11-23 13:40:30,602 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:40:30,603 - INFO - Processing LD account 1/1: LD6935666741720116479476
+2026-11-23 13:40:47,432 - INFO - Apply Changes completed for LD account: LD6935666741720116479476
+2026-11-23 13:40:52,547 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:40:52,548 - INFO - CNIC 3520220794658: 30-APR-26 submitted.
+2026-11-23 13:41:02,381 - INFO - Add Amendment Request opened.
+2026-11-23 13:41:02,382 - INFO - Processing CNIC 3520220794658 for 31-MAR-26
+2026-11-23 13:41:13,555 - INFO - Search submitted for entry 4. Data found for 31-MAR-26.
+2026-11-23 13:41:25,879 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:41:25,880 - INFO - Processing LD account 1/1: LD6935666741720116479476
+2026-11-23 13:41:43,161 - INFO - Apply Changes completed for LD account: LD6935666741720116479476
+2026-11-23 13:41:48,253 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:41:48,254 - INFO - CNIC 3520220794658: 31-MAR-26 submitted.
+2026-11-23 13:41:59,576 - INFO - Add Amendment Request opened.
+2026-11-23 13:41:59,577 - INFO - Processing CNIC 3520220794658 for 28-FEB-26
+2026-11-23 13:42:10,693 - INFO - Search submitted for entry 4. Data found for 28-FEB-26.
+2026-11-23 13:42:22,810 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:42:22,811 - INFO - Processing LD account 1/1: LD6935666741720116479476
+2026-11-23 13:42:39,184 - INFO - Apply Changes completed for LD account: LD6935666741720116479476
+2026-11-23 13:42:50,649 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:42:50,650 - INFO - CNIC 3520220794658: 28-FEB-26 submitted.
+2026-11-23 13:43:00,511 - INFO - Add Amendment Request opened.
+2026-11-23 13:43:00,512 - INFO - Processing CNIC 3520220794658 for 31-JAN-26
+2026-11-23 13:43:12,640 - INFO - Search submitted for entry 4. Data found for 31-JAN-26.
+2026-11-23 13:43:26,224 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:43:26,224 - INFO - Processing LD account 1/1: LD6935666741720116479476
+2026-11-23 13:43:42,453 - INFO - Apply Changes completed for LD account: LD6935666741720116479476
+2026-11-23 13:43:53,080 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:43:53,081 - INFO - CNIC 3520220794658: 31-JAN-26 submitted.
+2026-11-23 13:44:04,503 - INFO - Add Amendment Request opened.
+2026-11-23 13:44:04,504 - INFO - Processing CNIC 3520220794658 for 31-DEC-25
+2026-11-23 13:44:17,208 - INFO - Search submitted for entry 4. Data found for 31-DEC-25.
+2026-11-23 13:44:29,273 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:44:29,274 - INFO - Processing LD account 1/1: LD6935666741720116479476
+2026-11-23 13:44:45,708 - INFO - Apply Changes completed for LD account: LD6935666741720116479476
+2026-11-23 13:44:50,816 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:44:50,817 - INFO - CNIC 3520220794658: 31-DEC-25 submitted.
+2026-11-23 13:45:03,370 - INFO - Add Amendment Request opened.
+2026-11-23 13:45:03,370 - INFO - Processing CNIC 3520220794658 for 30-NOV-25
+2026-11-23 13:45:15,949 - INFO - Search submitted for entry 4. Data found for 30-NOV-25.
+2026-11-23 13:45:28,410 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:45:28,411 - INFO - Processing LD account 1/1: LD6935666741720116479476
+2026-11-23 13:45:45,836 - INFO - Apply Changes completed for LD account: LD6935666741720116479476
+2026-11-23 13:45:50,927 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:45:50,928 - INFO - CNIC 3520220794658: 30-NOV-25 submitted.
+2026-11-23 13:46:09,846 - INFO - Add Amendment Request opened.
+2026-11-23 13:46:09,847 - INFO - Processing CNIC 3520220794658 for 31-OCT-25
+2026-11-23 13:46:24,064 - INFO - Search submitted for entry 4. Data found for 31-OCT-25.
+2026-11-23 13:46:37,463 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:46:37,464 - INFO - Processing LD account 1/1: LD6935666741720116479476
+2026-11-23 13:46:55,365 - INFO - Apply Changes completed for LD account: LD6935666741720116479476
+2026-11-23 13:47:00,441 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:47:00,442 - INFO - CNIC 3520220794658: 31-OCT-25 submitted.
+2026-11-23 13:47:11,895 - INFO - Add Amendment Request opened.
+2026-11-23 13:47:11,896 - INFO - Processing CNIC 3520220794658 for 30-SEP-25
+2026-11-23 13:47:23,721 - INFO - Search submitted for entry 4. Data found for 30-SEP-25.
+2026-11-23 13:47:36,166 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:47:36,166 - INFO - Processing LD account 1/1: LD6935666741720116479476
+2026-11-23 13:47:53,079 - INFO - Apply Changes completed for LD account: LD6935666741720116479476
+2026-11-23 13:48:04,886 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:48:04,887 - INFO - CNIC 3520220794658: 30-SEP-25 submitted.
+2026-11-23 13:48:14,682 - INFO - Add Amendment Request opened.
+2026-11-23 13:48:14,683 - INFO - Processing CNIC 3520220794658 for 31-AUG-25
+2026-11-23 13:48:25,297 - INFO - Search submitted for entry 4. Data found for 31-AUG-25.
+2026-11-23 13:48:37,774 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:48:37,774 - INFO - Processing LD account 1/1: LD6935666741720116479476
+2026-11-23 13:48:53,799 - INFO - Apply Changes completed for LD account: LD6935666741720116479476
+2026-11-23 13:48:58,886 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:48:58,886 - INFO - CNIC 3520220794658: 31-AUG-25 submitted.
+2026-11-23 13:49:09,312 - INFO - Add Amendment Request opened.
+2026-11-23 13:49:09,313 - INFO - Processing CNIC 3520220794658 for 31-JUL-25
+2026-11-23 13:49:21,362 - INFO - Search submitted for entry 4. Data found for 31-JUL-25.
+2026-11-23 13:49:33,631 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:49:33,631 - INFO - Processing LD account 1/1: LD6935666741720116479476
+2026-11-23 13:49:51,125 - INFO - Apply Changes completed for LD account: LD6935666741720116479476
+2026-11-23 13:49:56,240 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:49:56,241 - INFO - CNIC 3520220794658: 31-JUL-25 submitted.
+2026-11-23 13:50:07,235 - INFO - Add Amendment Request opened.
+2026-11-23 13:50:07,235 - INFO - Processing CNIC 3520220794658 for 30-JUN-25
+2026-11-23 13:50:17,674 - INFO - Search submitted for entry 4. Data found for 30-JUN-25.
+2026-11-23 13:50:30,034 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:50:30,034 - INFO - Processing LD account 1/1: LD6935666741720116479476
+2026-11-23 13:50:45,837 - INFO - Apply Changes completed for LD account: LD6935666741720116479476
+2026-11-23 13:50:50,950 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:50:50,951 - INFO - CNIC 3520220794658: 30-JUN-25 submitted.
+2026-11-23 13:52:04,765 - INFO - Add Amendment Request opened.
+2026-11-23 13:52:04,765 - INFO - Processing CNIC 3520220794658 for 31-MAY-25
+2026-11-23 13:52:14,861 - INFO - Search submitted for entry 4. Data found for 31-MAY-25.
+2026-11-23 13:52:27,425 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:52:27,425 - INFO - Processing LD account 1/1: LD6935666741720116479476
+2026-11-23 13:52:44,478 - INFO - Apply Changes completed for LD account: LD6935666741720116479476
+2026-11-23 13:52:49,550 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:52:49,551 - INFO - CNIC 3520220794658: 31-MAY-25 submitted.
+2026-11-23 13:52:49,551 - INFO - CNIC 3520220794658 finished. Submitted: ['30-JUN-26', '31-MAY-26', '30-APR-26', '31-MAR-26', '28-FEB-26', '31-JAN-26', '31-DEC-25', '30-NOV-25', '31-OCT-25', '30-SEP-25', '31-AUG-25', '31-JUL-25', '30-JUN-25', '31-MAY-25'] | No LD account (skipped): []
+2026-11-23 13:52:49,697 - INFO - Report saved: D:\VsCode\Edap Automation\Submitted Data\23 Nov 2026\Submitted_Data_125940.xlsx
+2026-11-23 13:52:49,704 - INFO - Processing CNIC 5/5: 1350383388515
+2026-11-23 13:53:01,086 - INFO - Add Amendment Request opened.
+2026-11-23 13:53:01,087 - INFO - Processing CNIC 1350383388515 for 31-OCT-26
+2026-11-23 13:53:22,255 - INFO - CNIC 1350383388515: 'No data found' for 31-OCT-26, moving to previous month.
+2026-11-23 13:53:22,256 - INFO - Processing CNIC 1350383388515 for 30-SEP-26
+2026-11-23 13:53:43,217 - INFO - CNIC 1350383388515: 'No data found' for 30-SEP-26, moving to previous month.
+2026-11-23 13:53:43,217 - INFO - Processing CNIC 1350383388515 for 31-AUG-26
+2026-11-23 13:54:02,286 - INFO - Search submitted for entry 5. Data found for 31-AUG-26.
+2026-11-23 13:54:14,582 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:54:14,583 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 13:54:31,293 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 13:54:36,395 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:54:36,395 - INFO - CNIC 1350383388515: 31-AUG-26 submitted.
+2026-11-23 13:54:46,959 - INFO - Add Amendment Request opened.
+2026-11-23 13:54:46,961 - INFO - Processing CNIC 1350383388515 for 31-JUL-26
+2026-11-23 13:55:09,479 - INFO - Search submitted for entry 5. Data found for 31-JUL-26.
+2026-11-23 13:55:21,818 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:55:21,818 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 13:55:38,244 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 13:55:49,076 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:55:49,076 - INFO - CNIC 1350383388515: 31-JUL-26 submitted.
+2026-11-23 13:55:59,146 - INFO - Add Amendment Request opened.
+2026-11-23 13:55:59,147 - INFO - Processing CNIC 1350383388515 for 30-JUN-26
+2026-11-23 13:56:18,579 - INFO - Search submitted for entry 5. Data found for 30-JUN-26.
+2026-11-23 13:56:31,004 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:56:31,005 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 13:56:47,382 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 13:56:58,599 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:56:58,600 - INFO - CNIC 1350383388515: 30-JUN-26 submitted.
+2026-11-23 13:57:08,676 - INFO - Add Amendment Request opened.
+2026-11-23 13:57:08,677 - INFO - Processing CNIC 1350383388515 for 31-MAY-26
+2026-11-23 13:57:21,546 - INFO - Search submitted for entry 5. Data found for 31-MAY-26.
+2026-11-23 13:57:38,127 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:57:38,127 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 13:57:54,671 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 13:57:59,803 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:57:59,804 - INFO - CNIC 1350383388515: 31-MAY-26 submitted.
+2026-11-23 13:58:11,776 - INFO - Add Amendment Request opened.
+2026-11-23 13:58:11,776 - INFO - Processing CNIC 1350383388515 for 30-APR-26
+2026-11-23 13:58:23,673 - INFO - Search submitted for entry 5. Data found for 30-APR-26.
+2026-11-23 13:58:36,154 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:58:36,155 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 13:58:53,102 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 13:59:03,491 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 13:59:03,491 - INFO - CNIC 1350383388515: 30-APR-26 submitted.
+2026-11-23 13:59:13,174 - INFO - Add Amendment Request opened.
+2026-11-23 13:59:13,174 - INFO - Processing CNIC 1350383388515 for 31-MAR-26
+2026-11-23 13:59:23,700 - INFO - Search submitted for entry 5. Data found for 31-MAR-26.
+2026-11-23 13:59:36,115 - INFO - Total LD loan accounts identified: 1
+2026-11-23 13:59:36,115 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 13:59:52,378 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 14:00:03,678 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 14:00:03,679 - INFO - CNIC 1350383388515: 31-MAR-26 submitted.
+2026-11-23 14:00:14,329 - INFO - Add Amendment Request opened.
+2026-11-23 14:00:14,331 - INFO - Processing CNIC 1350383388515 for 28-FEB-26
+2026-11-23 14:00:28,468 - INFO - Search submitted for entry 5. Data found for 28-FEB-26.
+2026-11-23 14:00:41,078 - INFO - Total LD loan accounts identified: 1
+2026-11-23 14:00:41,079 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 14:00:58,507 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 14:01:03,601 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 14:01:03,602 - INFO - CNIC 1350383388515: 28-FEB-26 submitted.
+2026-11-23 14:01:16,875 - INFO - Add Amendment Request opened.
+2026-11-23 14:01:16,876 - INFO - Processing CNIC 1350383388515 for 31-JAN-26
+2026-11-23 14:01:30,204 - INFO - Search submitted for entry 5. Data found for 31-JAN-26.
+2026-11-23 14:01:42,643 - INFO - Total LD loan accounts identified: 1
+2026-11-23 14:01:42,643 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 14:01:58,577 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 14:02:03,660 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 14:02:03,660 - INFO - CNIC 1350383388515: 31-JAN-26 submitted.
+2026-11-23 14:02:16,248 - INFO - Add Amendment Request opened.
+2026-11-23 14:02:16,249 - INFO - Processing CNIC 1350383388515 for 31-DEC-25
+2026-11-23 14:02:29,721 - INFO - Search submitted for entry 5. Data found for 31-DEC-25.
+2026-11-23 14:02:42,204 - INFO - Total LD loan accounts identified: 1
+2026-11-23 14:02:42,206 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 14:03:00,060 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 14:03:10,646 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 14:03:10,647 - INFO - CNIC 1350383388515: 31-DEC-25 submitted.
+2026-11-23 14:03:22,495 - INFO - Add Amendment Request opened.
+2026-11-23 14:03:22,496 - INFO - Processing CNIC 1350383388515 for 30-NOV-25
+2026-11-23 14:03:34,361 - INFO - Search submitted for entry 5. Data found for 30-NOV-25.
+2026-11-23 14:03:47,075 - INFO - Total LD loan accounts identified: 1
+2026-11-23 14:03:47,075 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 14:04:04,783 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 14:04:09,926 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 14:04:09,927 - INFO - CNIC 1350383388515: 30-NOV-25 submitted.
+2026-11-23 14:04:20,369 - INFO - Add Amendment Request opened.
+2026-11-23 14:04:20,370 - INFO - Processing CNIC 1350383388515 for 31-OCT-25
+2026-11-23 14:04:33,301 - INFO - Search submitted for entry 5. Data found for 31-OCT-25.
+2026-11-23 14:04:46,605 - INFO - Total LD loan accounts identified: 1
+2026-11-23 14:04:46,605 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 14:05:04,344 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 14:05:09,474 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 14:05:09,475 - INFO - CNIC 1350383388515: 31-OCT-25 submitted.
+2026-11-23 14:05:20,660 - INFO - Add Amendment Request opened.
+2026-11-23 14:05:20,660 - INFO - Processing CNIC 1350383388515 for 30-SEP-25
+2026-11-23 14:05:32,572 - INFO - Search submitted for entry 5. Data found for 30-SEP-25.
+2026-11-23 14:05:45,249 - INFO - Total LD loan accounts identified: 1
+2026-11-23 14:05:45,250 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 14:06:01,821 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 14:06:13,309 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 14:06:13,310 - INFO - CNIC 1350383388515: 30-SEP-25 submitted.
+2026-11-23 14:06:24,582 - INFO - Add Amendment Request opened.
+2026-11-23 14:06:24,583 - INFO - Processing CNIC 1350383388515 for 31-AUG-25
+2026-11-23 14:06:36,357 - INFO - Search submitted for entry 5. Data found for 31-AUG-25.
+2026-11-23 14:06:49,244 - INFO - Total LD loan accounts identified: 1
+2026-11-23 14:06:49,245 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 14:07:06,730 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 14:07:11,832 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 14:07:11,832 - INFO - CNIC 1350383388515: 31-AUG-25 submitted.
+2026-11-23 14:07:24,629 - INFO - Add Amendment Request opened.
+2026-11-23 14:07:24,629 - INFO - Processing CNIC 1350383388515 for 31-JUL-25
+2026-11-23 14:07:35,278 - INFO - Search submitted for entry 5. Data found for 31-JUL-25.
+2026-11-23 14:07:47,715 - INFO - Total LD loan accounts identified: 1
+2026-11-23 14:07:47,716 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 14:08:04,756 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 14:08:09,830 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 14:08:09,831 - INFO - CNIC 1350383388515: 31-JUL-25 submitted.
+2026-11-23 14:08:20,168 - INFO - Add Amendment Request opened.
+2026-11-23 14:08:20,169 - INFO - Processing CNIC 1350383388515 for 30-JUN-25
+2026-11-23 14:08:30,720 - INFO - Search submitted for entry 5. Data found for 30-JUN-25.
+2026-11-23 14:08:43,324 - INFO - Total LD loan accounts identified: 1
+2026-11-23 14:08:43,325 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 14:09:00,746 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 14:09:05,889 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 14:09:05,890 - INFO - CNIC 1350383388515: 30-JUN-25 submitted.
+2026-11-23 14:09:17,296 - INFO - Add Amendment Request opened.
+2026-11-23 14:09:17,297 - INFO - Processing CNIC 1350383388515 for 31-MAY-25
+2026-11-23 14:09:28,293 - INFO - Search submitted for entry 5. Data found for 31-MAY-25.
+2026-11-23 14:09:40,928 - INFO - Total LD loan accounts identified: 1
+2026-11-23 14:09:40,928 - INFO - Processing LD account 1/1: LD3570697571723258789463
+2026-11-23 14:09:57,883 - INFO - Apply Changes completed for LD account: LD3570697571723258789463
+2026-11-23 14:10:02,992 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 14:10:02,992 - INFO - CNIC 1350383388515: 31-MAY-25 submitted.
+2026-11-23 14:10:02,993 - INFO - CNIC 1350383388515 finished. Submitted: ['31-AUG-26', '31-JUL-26', '30-JUN-26', '31-MAY-26', '30-APR-26', '31-MAR-26', '28-FEB-26', '31-JAN-26', '31-DEC-25', '30-NOV-25', '31-OCT-25', '30-SEP-25', '31-AUG-25', '31-JUL-25', '30-JUN-25', '31-MAY-25'] | No LD account (skipped): []
+2026-11-23 14:10:03,143 - INFO - Report saved: D:\VsCode\Edap Automation\Submitted Data\23 Nov 2026\Submitted_Data_125940.xlsx
+2026-11-23 14:10:03,144 - INFO - CNIC row processing finished: 5 succeeded, 0 failed, 0 not attempted.
+2026-11-23 14:10:03,144 - INFO - Main function completed successfully.
+2026-11-23 14:10:03,144 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-23 16:36:59,176 - INFO - EDAP automation started.
+2026-11-23 16:36:59,176 - INFO - Main function started.
+2026-11-23 16:36:59,203 - INFO - Total CNIC records loaded: 1
+2026-11-23 16:36:59,531 - INFO - Total LD numbers loaded: 15358
+2026-11-23 16:37:22,328 - INFO - Chrome browser launched successfully.
+2026-11-23 16:37:22,328 - INFO - Opening SBP portal.
+2026-11-23 16:38:34,457 - INFO - SBP login wait completed.
+2026-11-23 16:38:34,458 - INFO - Opening EDAP portal in a second tab.
+2026-11-23 16:38:37,895 - INFO - EDAP login confirmed.
+2026-11-23 16:38:37,896 - ERROR - Main function failed.
+Traceback (most recent call last):
+  File "D:\VsCode\Edap Automation\backup.py", line 671, in main
+    report_path = prepare_report_path(datetime.now())
+                                      ^^^^^^^^
+NameError: name 'datetime' is not defined. Did you forget to import 'datetime'?
+2026-11-23 16:38:37,907 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-23 17:05:07,112 - INFO - EDAP automation started.
+2026-11-23 17:05:07,112 - INFO - Main function started.
+2026-11-23 17:05:07,135 - INFO - Total CNIC records loaded: 1
+2026-11-23 17:05:07,433 - INFO - Total LD numbers loaded: 15358
+2026-11-23 17:05:17,918 - INFO - Chrome browser launched successfully.
+2026-11-23 17:05:17,918 - INFO - Opening SBP portal.
+2026-11-23 17:05:52,834 - INFO - SBP login wait completed.
+2026-11-23 17:05:52,835 - INFO - Opening EDAP portal in a second tab.
+2026-11-23 17:05:56,279 - INFO - EDAP login confirmed.
+2026-11-23 17:05:56,281 - INFO - Report file: D:\VsCode\Edap Automation\Submitted Data\23 Nov 2026\Submitted_Data_170556.xlsx
+2026-11-23 17:05:56,281 - INFO - Starting CNIC processing. Total records: 1
+2026-11-23 17:05:56,286 - INFO - Processing CNIC 1/1: 3320146954713
+2026-11-23 17:06:07,219 - INFO - Add Amendment Request opened.
+2026-11-23 17:06:07,219 - INFO - Processing CNIC 3320146954713 for 31-OCT-26
+2026-11-23 17:08:02,473 - INFO - Search submitted for entry 1. Data found for 31-OCT-26.
+2026-11-23 17:08:15,839 - INFO - Total LD loan accounts identified: 2
+2026-11-23 17:08:15,842 - INFO - LD already in the list ['LD1729771257']. Skipping this month, nothing submitted.
+2026-11-23 17:08:15,842 - INFO - CNIC 3320146954713: 31-OCT-26 skipped, LD already in list. Moving to previous month.
+2026-11-23 17:08:27,529 - INFO - Add Amendment Request opened.
+2026-11-23 17:08:27,530 - INFO - Processing CNIC 3320146954713 for 30-SEP-26
+2026-11-23 17:08:44,118 - INFO - Report saved: D:\VsCode\Edap Automation\Submitted Data\23 Nov 2026\Submitted_Data_170556.xlsx
+2026-11-23 17:08:44,118 - INFO - Automation finished. Browser remains open for manual review.
+2026-11-23 17:23:39,255 - INFO - EDAP automation started.
+2026-11-23 17:23:39,255 - INFO - Main function started.
+2026-11-23 17:23:39,280 - INFO - Total CNIC records loaded: 1
+2026-11-23 17:23:39,592 - INFO - Total LD numbers loaded: 15358
+2026-11-23 17:24:03,550 - INFO - Chrome browser launched successfully.
+2026-11-23 17:24:03,551 - INFO - Opening SBP portal.
+2026-11-23 17:24:32,261 - INFO - SBP login wait completed.
+2026-11-23 17:24:32,261 - INFO - Opening EDAP portal in a second tab.
+2026-11-23 17:24:37,761 - INFO - EDAP login confirmed.
+2026-11-23 17:24:37,762 - INFO - Report file: D:\VsCode\Edap Automation\Submitted Data\23 Nov 2026\Submitted_Data_172437.xlsx
+2026-11-23 17:24:37,762 - INFO - Starting CNIC processing. Total records: 1
+2026-11-23 17:24:37,766 - INFO - Processing CNIC 1/1: 3320146954713
+2026-11-23 17:24:53,151 - INFO - Add Amendment Request opened.
+2026-11-23 17:24:53,151 - INFO - Processing CNIC 3320146954713 for 31-OCT-26
+2026-11-23 17:25:01,216 - INFO - Search submitted for entry 1. Data found for 31-OCT-26.
+2026-11-23 17:25:14,647 - INFO - Total LD loan accounts identified: 2
+2026-11-23 17:25:14,648 - INFO - LD already in the list, skipped: ['LD1729771257']
+2026-11-23 17:25:14,648 - INFO - Processing LD account 1/1: LD175887815144916357562
+2026-11-23 17:25:32,777 - INFO - Apply Changes completed for LD account: LD175887815144916357562
+2026-11-23 17:25:37,893 - INFO - All 1 LD loan accounts processed. Final submission completed.
+2026-11-23 17:25:37,894 - INFO - CNIC 3320146954713: 31-OCT-26 submitted.
+2026-11-23 17:25:56,615 - INFO - Add Amendment Request opened.
+2026-11-23 17:25:56,616 - INFO - Processing CNIC 3320146954713 for 30-SEP-26
+2026-11-23 17:26:03,151 - INFO - Report saved: D:\VsCode\Edap Automation\Submitted Data\23 Nov 2026\Submitted_Data_172437.xlsx
+2026-11-23 17:26:03,151 - INFO - Automation finished. Browser remains open for manual review.
