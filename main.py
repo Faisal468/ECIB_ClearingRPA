@@ -255,6 +255,71 @@ def save_report_function(report_path, report):
         logger.exception("Could not save the report file.")
 
 
+DONE_PREFIXES = (
+    "cleared",
+    "LD already in list",
+    "no LD account",
+    "no information found",
+)
+
+
+def is_done_status(status):
+    """A month is finished for good (nothing to redo) for these statuses."""
+    return isinstance(status, str) and status.startswith(DONE_PREFIXES)
+
+
+def load_previous_progress():
+    """Read every earlier report and merge it: {cnic: {month_label: status}}.
+
+    Files are read oldest to newest; only finished statuses are kept, so a
+    month that was 'failed' / 'not processed' is retried on the next run.
+    """
+    progress = {}
+    files = sorted(
+        SUBMITTED_DIR.glob("*/Submitted_Data_*.xlsx"),
+        key=lambda p: p.stat().st_mtime,
+    )
+
+    for file in files:
+        try:
+            workbook = load_workbook(file, read_only=True, data_only=True)
+        except Exception:
+            logger.exception("Could not read previous report: %s", file)
+            continue
+
+        try:
+            rows = workbook.active.iter_rows(values_only=True)
+            header = next(rows, None)
+            if not header:
+                continue
+
+            labels = {}  # column index -> month label
+            for col, text in enumerate(header):
+                if col == 0 or not text:
+                    continue
+                try:
+                    parsed = datetime.strptime(str(text), "%b %y")
+                except ValueError:
+                    continue
+                labels[col] = month_label(parsed.year, parsed.month)
+
+            for row in rows:
+                if not row or row[0] is None:
+                    continue
+                cnic = str(row[0]).strip()
+                for col, label in labels.items():
+                    if col < len(row) and is_done_status(row[col]):
+                        progress.setdefault(cnic, {})[label] = row[col]
+        except Exception:
+            logger.exception("Could not parse previous report: %s", file)
+        finally:
+            workbook.close()
+
+    logger.info("Previous progress loaded for %s CNICs.", len(progress))
+    print(f"Previous progress loaded for {len(progress)} CNICs.")
+    return progress
+
+
 def clear_p76_fields(driver, element_wait):
 
     product_code = element_wait.until(
@@ -569,7 +634,16 @@ def amendment_form_function(driver, element_wait, known_lds):
 
 
 def each_entry_activity_function(
-    driver, element_wait, edap_tab, edap_url, cnic, index, total, statuses, known_lds
+    driver,
+    element_wait,
+    edap_tab,
+    edap_url,
+    cnic,
+    index,
+    total,
+    statuses,
+    known_lds,
+    save_progress,
 ):
 
     logger.info("Processing CNIC %s/%s: %s", index, total, cnic)
@@ -582,6 +656,18 @@ def each_entry_activity_function(
     for year, month in get_months():
 
         label = month_label(year, month)
+
+        # Resume: month finished in an earlier run, do not repeat it
+        if is_done_status(statuses.get(label)):
+            logger.info(
+                "CNIC %s: %s already done earlier (%s), skipping.",
+                cnic,
+                label,
+                statuses[label],
+            )
+            print(f"CNIC {cnic}: {label} already done, skipping.")
+            continue
+
         statuses[label] = "failed"
 
         # Every month that follows a submitted month starts from Add Amendment Request
@@ -652,6 +738,7 @@ def each_entry_activity_function(
             )
             print(f"No data found for {label}, trying previous month.")
             statuses[label] = "no information found"
+            save_progress()
             continue
 
         logger.info("Search submitted for entry %s. Data found for %s.", index, label)
@@ -659,6 +746,7 @@ def each_entry_activity_function(
 
         result = amendment_form_function(driver, element_wait, known_lds)
         statuses[label] = result
+        save_progress()
 
         if result.startswith("cleared"):
             months_done.append(label)
@@ -708,10 +796,22 @@ def each_entry_row_function(
     succeeded = 0
     failed = 0
     report = []  # list of (cnic, {month_label: status})
+    previous = load_previous_progress()
+    months = [month_label(y, m) for y, m in get_months()]
+
+    def save_progress():
+        save_report_function(report_path, report)
 
     for index, cnic in enumerate(records, start=1):
-        statuses = {}
+        statuses = dict(previous.get(cnic, {}))  # carry over finished months
         report.append((cnic, statuses))
+
+        # Resume: every month already finished -> skip this CNIC entirely
+        if all(is_done_status(statuses.get(label)) for label in months):
+            logger.info("CNIC %s/%s %s already complete, skipping.", index, total, cnic)
+            print(f"CNIC {index}/{total} {cnic}: already complete, skipping.")
+            succeeded += 1
+            continue
 
         try:
             driver.switch_to.window(edap_tab)
@@ -725,6 +825,7 @@ def each_entry_row_function(
                 total,
                 statuses,
                 known_lds,
+                save_progress,
             )
             succeeded += 1
 
