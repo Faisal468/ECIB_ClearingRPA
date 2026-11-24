@@ -2,6 +2,7 @@ import calendar
 import configparser
 import logging
 import time
+import traceback
 from datetime import date, datetime
 from functools import lru_cache
 from pathlib import Path
@@ -119,7 +120,7 @@ def browser_launch(element_wait_time):
     driver_files = sorted(BROWSER_DIR.rglob("chromedriver.exe"))
     chrome_files = sorted(BROWSER_DIR.rglob("chrome.exe"))
 
-    if not driver_files:
+    if not driver_files: 
         raise FileNotFoundError("chromedriver.exe was not found in the browser folder.")
 
     options = Options()
@@ -214,6 +215,39 @@ def prepare_report_path(run_started):
     report_path = folder / f"Submitted_Data_{run_started.strftime('%H%M%S')}.xlsx"
     logger.info("Report file: %s", report_path)
     return report_path
+
+
+def write_failed_log(report_path, index, total, cnic, statuses, error):
+    """Append the failure reason to Failed_Log_<time>.txt next to the Excel report.
+
+    The file is only created when something fails.
+    """
+    try:
+        failed_path = report_path.with_name(
+            report_path.name.replace("Submitted_Data_", "Failed_Log_").replace(
+                ".xlsx", ".txt"
+            )
+        )
+        failed_months = [label for label, s in statuses.items() if s == "failed"]
+        message = str(error).strip().splitlines()
+        reason = message[0] if message else ""
+
+        with open(failed_path, "a", encoding="utf-8") as file:
+            file.write(f"Time    : {datetime.now():%Y-%m-%d %H:%M:%S}\n")
+            file.write(f"CNIC    : {cnic} (row {index}/{total})\n")
+            file.write(f"Month(s): {', '.join(failed_months) or 'unknown'}\n")
+            file.write(f"Reason  : {type(error).__name__}: {reason}\n")
+            file.write("Traceback:\n")
+            file.write(
+                "".join(
+                    traceback.format_exception(type(error), error, error.__traceback__)
+                )
+            )
+            file.write("-" * 80 + "\n\n")
+
+        logger.info("Failure details saved: %s", failed_path)
+    except Exception:
+        logger.exception("Could not write the failed log file.")
 
 
 def save_report_function(report_path, report):
@@ -829,9 +863,10 @@ def each_entry_row_function(
             )
             succeeded += 1
 
-        except Exception:
+        except Exception as error:
             failed += 1
             logger.exception("EachEntry_Activity_Function failed at row %s.", index)
+            write_failed_log(report_path, index, total, cnic, statuses, error)
             print(f"Entry {index} failed. Check Execution_Log.txt.")
             break
 
