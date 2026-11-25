@@ -1,6 +1,8 @@
 import calendar
 import configparser
 import logging
+import os
+import subprocess
 import time
 import traceback
 from datetime import date, datetime
@@ -9,6 +11,7 @@ from pathlib import Path
 import sys
 
 from openpyxl import Workbook, load_workbook
+from openpyxl.styles import PatternFill
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException, WebDriverException
 from selenium.webdriver.chrome.options import Options
@@ -35,6 +38,11 @@ MAX_MONTHS = 24  # 2 years
 
 NO_DATA_XPATH = "//span[contains(text(), 'No data found')]"
 GENERATE_REQUEST_XPATH = '//button[text()="Generate Request"]'
+WELCOME_XPATH = "//*[contains(text(), 'Welcome to Data Submission')]"
+
+# Defaults, can be overridden in config.ini [SETTINGS]
+DEFAULT_RETRY_WAITS = (30, 60, 120)  # seconds to wait before retry 1, 2, 3
+DEFAULT_LOGIN_CHECK_INTERVAL = 60  # seconds between "are we logged in again?" checks
 
 logger = logging.getLogger("EDAP")
 
@@ -115,6 +123,50 @@ def read_known_lds_function():
         workbook.close()
 
 
+def kill_stale_browser_processes():
+    """Close leftover Chrome/chromedriver started from the bundled browser folder.
+
+    Only processes whose executable lives inside BROWSER_DIR are closed, so the
+    user's own Chrome is never touched.
+    """
+    if sys.platform != "win32" or not BROWSER_DIR.is_dir():
+        return
+
+    script = (
+        "Get-CimInstance Win32_Process | Where-Object { $_.ExecutablePath -and "
+        "$_.ExecutablePath.StartsWith($env:EDAP_BROWSER_DIR, "
+        "[System.StringComparison]::OrdinalIgnoreCase) } | "
+        "ForEach-Object { Stop-Process -Id $_.ProcessId -Force "
+        "-ErrorAction SilentlyContinue }"
+    )
+    env = dict(os.environ, EDAP_BROWSER_DIR=str(BROWSER_DIR) + os.sep)
+
+    try:
+        subprocess.run(
+            ["powershell", "-NoProfile", "-Command", script],
+            env=env,
+            capture_output=True,
+            timeout=60,
+        )
+        time.sleep(2)
+        logger.info("Stale browser processes cleaned up.")
+    except Exception:
+        logger.exception("Could not clean up stale browser processes.")
+
+
+def browser_launch_with_retry(element_wait_time):
+    """Clean up old browser processes, then launch Chrome (one retry on failure)."""
+    kill_stale_browser_processes()
+
+    try:
+        return browser_launch(element_wait_time)
+    except Exception:
+        logger.exception("Chrome launch failed, cleaning up and trying once more.")
+        kill_stale_browser_processes()
+        time.sleep(5)
+        return browser_launch(element_wait_time)
+
+
 def browser_launch(element_wait_time):
     """Launch bundled Chrome and return the driver and explicit wait."""
     driver_files = sorted(BROWSER_DIR.rglob("chromedriver.exe"))
@@ -148,6 +200,115 @@ def browser_launch(element_wait_time):
     logger.info("Chrome browser launched successfully.")
     print("Chrome browser launched successfully.")
     return driver, element_wait
+
+
+def is_browser_alive(driver):
+    try:
+        driver.current_url  # raises if the browser is closed or crashed
+        return True
+    except Exception:
+        return False
+
+
+def is_login_page(driver):
+    """True when the current page is the portal login page (session expired)."""
+    try:
+        return ":LOGIN" in driver.current_url.upper()
+    except Exception:
+        return False
+
+
+def wait_for_sbp_login(driver, check_interval):
+    """Wait with no time limit until someone logs in to the SBP portal."""
+    announced = False
+    while True:
+        if driver.find_elements(By.XPATH, WELCOME_XPATH):
+            return
+        if not announced:
+            logger.warning("Waiting for someone to log in to the SBP portal.")
+            print("Waiting for login to the SBP portal...")
+            announced = True
+        time.sleep(check_interval)
+
+
+class BrowserSession:
+    """Holds the browser so it can be relaunched after a crash."""
+
+    def __init__(self, sbp_url, edap_url, element_wait_time, login_check_interval):
+        self.sbp_url = sbp_url
+        self.edap_url = edap_url
+        self.element_wait_time = element_wait_time
+        self.login_check_interval = login_check_interval
+        self.driver = None
+        self.element_wait = None
+        self.edap_tab = None
+
+    def start(self, wait_forever=False):
+        """Launch Chrome, wait for the manual SBP login, open EDAP in a new tab."""
+        self.driver, self.element_wait = browser_launch_with_retry(
+            self.element_wait_time
+        )
+
+        logger.info("Opening SBP portal.")
+        self.driver.get(self.sbp_url)
+
+        if wait_forever:
+            wait_for_sbp_login(self.driver, self.login_check_interval)
+        else:
+            print("SBP portal opened. Waiting for login...")
+            self.element_wait.until(
+                EC.element_to_be_clickable((By.XPATH, WELCOME_XPATH))
+            )
+        logger.info("SBP login wait completed.")
+
+        logger.info("Opening EDAP portal in a second tab.")
+        self.driver.switch_to.new_window("tab")
+        self.edap_tab = self.driver.current_window_handle
+        self.driver.get(self.edap_url)
+
+        print("EDAP portal opened.")
+        logger.info("EDAP login confirmed.")
+
+    def restart(self):
+        """Relaunch Chrome after it was closed or crashed; waits for a login."""
+        logger.warning("Browser is not responding. Relaunching Chrome.")
+        print("Browser closed or crashed. Relaunching Chrome, please log in...")
+
+        try:
+            self.driver.quit()
+        except Exception:
+            pass
+
+        last_error = None
+        for attempt in range(1, 4):
+            try:
+                self.start(wait_forever=True)
+                return
+            except Exception as error:
+                last_error = error
+                logger.exception("Chrome relaunch attempt %s failed.", attempt)
+                time.sleep(60)
+
+        raise RuntimeError("Could not relaunch Chrome.") from last_error
+
+    def wait_for_relogin(self):
+        """If the portal logged us out, wait (no limit) until someone logs in again."""
+        try:
+            self.driver.switch_to.window(self.edap_tab)
+        except Exception:
+            return
+
+        if not is_login_page(self.driver):
+            return
+
+        logger.warning("Portal session expired. Waiting for someone to log in again.")
+        print("Portal session expired. Waiting for login...")
+
+        while is_login_page(self.driver):
+            time.sleep(self.login_check_interval)
+
+        logger.info("Login detected again, continuing.")
+        print("Login detected, continuing.")
 
 
 def activities(driver, element_wait, edap_tab):
@@ -217,7 +378,21 @@ def prepare_report_path(run_started):
     return report_path
 
 
-def write_failed_log(report_path, index, total, cnic, statuses, error):
+def save_failure_screenshot(driver, report_path, cnic):
+    """Save a screenshot of the page next to the report. Returns the path or None."""
+    try:
+        name = f"Failed_{cnic}_{datetime.now():%H%M%S}.png"
+        path = report_path.with_name(name)
+        if driver.save_screenshot(str(path)):
+            return path
+    except Exception:
+        logger.warning("Could not save a failure screenshot.")
+    return None
+
+
+def write_failed_log(
+    report_path, index, total, cnic, statuses, error, url=None, screenshot=None
+):
     """Append the failure reason to Failed_Log_<time>.txt next to the Excel report.
 
     The file is only created when something fails.
@@ -237,6 +412,9 @@ def write_failed_log(report_path, index, total, cnic, statuses, error):
             file.write(f"CNIC    : {cnic} (row {index}/{total})\n")
             file.write(f"Month(s): {', '.join(failed_months) or 'unknown'}\n")
             file.write(f"Reason  : {type(error).__name__}: {reason}\n")
+            file.write(f"Page URL: {url or 'unknown'}\n")
+            file.write(f"Screenshot: {screenshot.name if screenshot else 'none'}\n")
+            file.write("Outcome : failed after all retries, moved to the next CNIC\n")
             file.write("Traceback:\n")
             file.write(
                 "".join(
@@ -250,7 +428,11 @@ def write_failed_log(report_path, index, total, cnic, statuses, error):
         logger.exception("Could not write the failed log file.")
 
 
-def save_report_function(report_path, report):
+ROW_FAILED_FILL = PatternFill("solid", start_color="FFC7CE", end_color="FFC7CE")
+CELL_FAILED_FILL = PatternFill("solid", start_color="FF5C5C", end_color="FF5C5C")
+
+
+def save_report_function(report_path, report, failed_cnics=()):
 
     if not report:
         return
@@ -269,11 +451,17 @@ def save_report_function(report_path, report):
             sheet.cell(row=1, column=column, value=header)
 
         for row, (cnic, statuses) in enumerate(report, start=2):
-            sheet.cell(row=row, column=1, value=str(cnic))
+            cnic_failed = cnic in failed_cnics
+            first_cell = sheet.cell(row=row, column=1, value=str(cnic))
+            if cnic_failed:
+                first_cell.fill = ROW_FAILED_FILL
             for column, label in enumerate(labels, start=2):
-                sheet.cell(
-                    row=row, column=column, value=statuses.get(label, "not processed")
-                )
+                status = statuses.get(label, "not processed")
+                cell = sheet.cell(row=row, column=column, value=status)
+                if cnic_failed:
+                    cell.fill = (
+                        CELL_FAILED_FILL if status == "failed" else ROW_FAILED_FILL
+                    )
 
         sheet.column_dimensions["A"].width = 18
         for column in range(2, len(headers) + 2):
@@ -820,21 +1008,143 @@ def each_entry_activity_function(
         print(f"CNIC {cnic}: no data found in any month.")
 
 
+def process_cnic_with_retries(
+    session,
+    report_path,
+    cnic,
+    index,
+    total,
+    statuses,
+    known_lds,
+    save_progress,
+    retry_waits,
+):
+    """Run one CNIC; on failure wait and retry. Returns None, or the final error.
+
+    Each retry restarts the CNIC, but months that are already finished are
+    skipped, so work resumes at the month that failed. The retry counter is
+    reset whenever an attempt finished at least one more month.
+    """
+    months = [month_label(y, m) for y, m in get_months()]
+
+    def done_count():
+        return sum(1 for label in months if is_done_status(statuses.get(label)))
+
+    retries_used = 0
+
+    while True:
+        done_before = done_count()
+
+        try:
+            session.driver.switch_to.window(session.edap_tab)
+            each_entry_activity_function(
+                session.driver,
+                session.element_wait,
+                session.edap_tab,
+                session.edap_url,
+                cnic,
+                index,
+                total,
+                statuses,
+                known_lds,
+                save_progress,
+            )
+            return None
+
+        except Exception as error:
+            logger.exception(
+                "CNIC %s/%s %s failed (retry %s of %s used).",
+                index,
+                total,
+                cnic,
+                retries_used,
+                len(retry_waits),
+            )
+
+            if done_count() > done_before:
+                retries_used = 0  # made progress, so give it a fresh set of retries
+
+            browser_alive = is_browser_alive(session.driver)
+            url = None
+            screenshot = None
+            if browser_alive:
+                try:
+                    url = session.driver.current_url
+                except Exception:
+                    pass
+                screenshot = save_failure_screenshot(
+                    session.driver, report_path, cnic
+                )
+
+            if retries_used >= len(retry_waits):
+                write_failed_log(
+                    report_path,
+                    index,
+                    total,
+                    cnic,
+                    statuses,
+                    error,
+                    url=url,
+                    screenshot=screenshot,
+                )
+                return error
+
+            wait_seconds = retry_waits[retries_used]
+            retries_used += 1
+            logger.warning(
+                "Retry %s/%s for CNIC %s in %s seconds.",
+                retries_used,
+                len(retry_waits),
+                cnic,
+                wait_seconds,
+            )
+            print(
+                f"CNIC {cnic} failed. Retry {retries_used}/{len(retry_waits)} "
+                f"in {wait_seconds}s..."
+            )
+            time.sleep(wait_seconds)
+
+            if not browser_alive:
+                session.restart()
+            else:
+                session.wait_for_relogin()
+
+
+def write_run_summary(total, succeeded, already_complete, failed_cnics, report_path):
+    lines = [
+        "================ RUN SUMMARY ================",
+        f"Total CNICs in Edap.xlsx : {total}",
+        f"Processed OK             : {succeeded - already_complete}",
+        f"Already complete (skipped): {already_complete}",
+        f"FAILED (skipped)         : {len(failed_cnics)}",
+    ]
+    for cnic, reason in failed_cnics:
+        lines.append(f"    - {cnic}: {reason}")
+    lines.append(f"Report: {report_path}")
+    lines.append("=============================================")
+
+    for line in lines:
+        logger.info(line)
+    print("\n" + "\n".join(lines))
+
+
 def each_entry_row_function(
-    driver, element_wait, edap_tab, edap_url, records, report_path, known_lds
+    session, records, report_path, known_lds, retry_waits
 ):
 
     total = len(records)
     logger.info("Starting CNIC processing. Total records: %s", total)
 
     succeeded = 0
-    failed = 0
+    already_complete = 0
+    failed_cnics = []  # list of (cnic, reason)
+    failed_set = set()
     report = []  # list of (cnic, {month_label: status})
     previous = load_previous_progress()
     months = [month_label(y, m) for y, m in get_months()]
 
     def save_progress():
-        save_report_function(report_path, report)
+        save_report_function(report_path, report, failed_set)
 
     for index, cnic in enumerate(records, start=1):
         statuses = dict(previous.get(cnic, {}))  # carry over finished months
@@ -845,44 +1155,50 @@ def each_entry_row_function(
             logger.info("CNIC %s/%s %s already complete, skipping.", index, total, cnic)
             print(f"CNIC {index}/{total} {cnic}: already complete, skipping.")
             succeeded += 1
+            already_complete += 1
             continue
 
         try:
-            driver.switch_to.window(edap_tab)
-            each_entry_activity_function(
-                driver,
-                element_wait,
-                edap_tab,
-                edap_url,
+            error = process_cnic_with_retries(
+                session,
+                report_path,
                 cnic,
                 index,
                 total,
                 statuses,
                 known_lds,
                 save_progress,
+                retry_waits,
             )
-            succeeded += 1
 
-        except Exception as error:
-            failed += 1
-            logger.exception("EachEntry_Activity_Function failed at row %s.", index)
-            write_failed_log(report_path, index, total, cnic, statuses, error)
-            print(f"Entry {index} failed. Check Execution_Log.txt.")
-            break
+            if error is None:
+                succeeded += 1
+            else:
+                reason = f"{type(error).__name__}: {str(error).strip().splitlines()[0] if str(error).strip() else ''}"
+                failed_cnics.append((cnic, reason))
+                failed_set.add(cnic)
+                logger.error("CNIC %s FAILED after all retries, moving on.", cnic)
+                print(f"CNIC {index}/{total} {cnic} FAILED. Moving to the next CNIC.")
 
         finally:
             # Save after every CNIC (also after a failure) so nothing is lost
-            save_report_function(report_path, report)
-
-    not_attempted = total - succeeded - failed
+            save_progress()
 
     logger.info(
-        "CNIC row processing finished: %s succeeded, %s failed, %s not attempted.",
+        "CNIC row processing finished: %s succeeded, %s failed.",
         succeeded,
-        failed,
-        not_attempted,
+        len(failed_cnics),
     )
-    return succeeded, failed, not_attempted
+    write_run_summary(total, succeeded, already_complete, failed_cnics, report_path)
+    return succeeded, failed_cnics
+
+
+def parse_retry_waits(text):
+    try:
+        waits = tuple(int(part) for part in text.split(",") if part.strip())
+        return waits or DEFAULT_RETRY_WAITS
+    except ValueError:
+        return DEFAULT_RETRY_WAITS
 
 
 def main():
@@ -901,6 +1217,12 @@ def main():
         sbp_url = config.get("PORTALS", "SBP_Portal").strip()
         edap_url = config.get("PORTALS", "EDAP_Portal").strip()
         element_wait_time = config.getint("SETTINGS", "Element_Wait_Time")
+        retry_waits = parse_retry_waits(
+            config.get("SETTINGS", "Retry_Wait_Seconds", fallback="")
+        )
+        login_check_interval = config.getint(
+            "SETTINGS", "Login_Check_Interval", fallback=DEFAULT_LOGIN_CHECK_INTERVAL
+        )
 
         records = read_excel_function()
         if not records:
@@ -910,29 +1232,12 @@ def main():
 
         known_lds = read_known_lds_function()
 
-        driver, element_wait = browser_launch(element_wait_time)
+        session = BrowserSession(
+            sbp_url, edap_url, element_wait_time, login_check_interval
+        )
 
         try:
-            logger.info("Opening SBP portal.")
-            driver.get(sbp_url)
-            print("SBP portal opened. Waiting 3 minutes for login...")
-
-            element_wait.until(
-                EC.element_to_be_clickable(
-                    (By.XPATH, "//*[contains(text(), 'Welcome to Data Submission')]")
-                )
-            )
-            # set wait for element here
-            logger.info("SBP login wait completed.")
-
-            logger.info("Opening EDAP portal in a second tab.")
-            driver.switch_to.new_window("tab")
-            edap_tab = driver.current_window_handle
-            driver.get(edap_url)
-
-            print("EDAP portal opened.")
-            logger.info("EDAP login confirmed.")
-
+            session.start()
         except Exception:
             logger.exception("Portal login failed; login was unsuccessful.")
             print("Portal login was unsuccessful. Check Execution_Log.txt.")
@@ -941,23 +1246,23 @@ def main():
         report_path = prepare_report_path(datetime.now())
 
         # Add Amendment Request is opened per month inside each_entry_activity_function
-        succeeded, failed, not_attempted = each_entry_row_function(
-            driver, element_wait, edap_tab, edap_url, records, report_path, known_lds
+        succeeded, failed_cnics = each_entry_row_function(
+            session, records, report_path, known_lds, retry_waits
         )
 
-        if failed == 0 and not_attempted == 0:
+        if not failed_cnics:
             logger.info("Main function completed successfully.")
             print("\nEDAP processing completed.")
         else:
             logger.warning(
-                "Main function completed with errors: %s succeeded, %s failed, %s not attempted.",
+                "Main function completed with errors: %s succeeded, %s failed.",
                 succeeded,
-                failed,
-                not_attempted,
+                len(failed_cnics),
             )
             print(
-                f"\nEDAP processing finished with errors: {succeeded} succeeded, "
-                f"{failed} failed, {not_attempted} not attempted."
+                f"\nEDAP processing finished: {succeeded} succeeded, "
+                f"{len(failed_cnics)} failed (highlighted in the report). "
+                "Run again to retry the failed ones."
             )
 
     except Exception:
